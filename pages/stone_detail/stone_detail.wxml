@@ -61,6 +61,10 @@
                 <text class="params_key">价格 |  Price</text>
                 <text class="params_value">{{stone.price}}</text>
             </view>
+            <!-- wx:if="{{showSpot}}" -->
+            <view class="params_item">
+                <button type="primary" ontap="goSpotDetail" class="spot-btn">现货</button>
+            </view>
         </view>
     </view>
     <view class="line"></view>
