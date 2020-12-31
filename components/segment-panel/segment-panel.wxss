@@ -1,0 +1,16 @@
+.segment-container{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    /* height: 100vh; */
+}
+
+.segment-panel {
+    width: 100%;
+    text-align: center;
+    color: #333;
+    flex: 1;
+}
+.segment-panel swiper {
+    height: 100vh;
+}

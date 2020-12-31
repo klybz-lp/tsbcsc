@@ -1,0 +1,42 @@
+<view class="containor">
+    <segment-bar segmentBar="{{items}}" currentIndex="{{currentIndex}}" bind:selectChange="selectChange"> 
+        <view wx:if="{{currentIndex==1}}">
+            <view class="project_main">
+                <block wx:for="{{fav}}" wx:for-item="item" wx:key="index">
+                <navigator class="project_item" url="/pages/stone_detail/stone_detail?id={{item.stone_id}}">
+                    <view class="project_pic">
+                        <image mode="widthFix" src="{{item.stone.stone_cover}}" />
+                    </view>
+                    <view class="project_text">{{item.stone.name}}</view>
+                </navigator>
+                </block>
+                <view class="loadingMore">
+                    <text wx:if="{{noData}}">数据加载完毕</text>
+                    <view class="loading" wx:if="{{!noData}}">
+                        <text class="load"></text>
+                        <text>数据加载中...</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{currentIndex==2}}">
+            <view class="project_main">
+                <block wx:for="{{fav}}" wx:for-item="item" wx:key="index">
+                <navigator class="project_item" url="/pages/store_detail/store_detail?id={{item.store_id}}">
+                    <view class="project_pic">
+                        <image mode="widthFix" src="{{item.store.logo_path}}" />
+                    </view>
+                    <view class="project_text">{{item.store.name}}</view>
+                </navigator>
+                </block>
+                <view class="loadingMore">
+                    <text wx:if="{{noData}}">数据加载完毕</text>
+                    <view class="loading" wx:if="{{!noData}}">
+                        <text class="load"></text>
+                        <text>数据加载中...</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </segment-bar> 
+</view>

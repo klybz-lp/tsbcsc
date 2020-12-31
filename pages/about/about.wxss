@@ -1,0 +1,134 @@
+/* pages/about/about.wxss */
+.containor {
+    background-color: #f1f1f1;
+}
+.user-info-wrap {
+    height: 250rpx;
+    background: #cdb288;
+    overflow: hidden;
+}
+.user-img-wrap {
+    position: relative;
+}
+.user-bg {
+    width: 750rpx;
+    height: 52vh;
+}
+.user-info {
+    padding: 40rpx 0 0 30rpx;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+}
+.user-icon {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20rpx;
+}
+.user-icon image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.user-name {
+    font-size: 28rpx;
+    color: #fff;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    margin-right: 10rpx;
+}
+.user-name .level {
+    font-size: 12px;
+    background-color: #000;
+    padding: 1px 8px;
+    border-radius: 13px;
+    margin-left: 10rpx;
+}
+.user-info-btn {
+    width: 200rpx;
+    margin: 80rpx auto 0;
+    background-color: #fff;
+    color: 888;
+    text-align: center;
+    padding: 5px 20px;
+    font-size: 14px;
+}
+.user-content {
+    position: relative;
+}
+.user-main {
+    width: 94%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -40rpx;
+    overflow: hidden;
+}
+.history-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+}
+.history-wrap navigator {
+    flex: 1;
+    padding: 10rpx 0;
+    text-align: center;
+}
+.his-num {
+    color: var(--themeColor);
+}
+.order-wrap {
+    background-color: #fff;
+    margin-top: 30rpx;
+}
+.order-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.order-title {
+    padding: 20rpx;
+    border-bottom: 1px solid #f1f1f1;
+}
+.order-content navigator {
+    flex: 1;
+    padding: 10rpx 0;
+    text-align: center;
+    margin-top: 20rpx;
+}
+.order-content navigator .iconfont {
+    color: var(--themeColor);
+    font-size: 40rpx;
+}
+.about-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20rpx 0;
+    background: #fff;
+    margin: 20rpx 0;
+}
+.about-wrap .about-wrap-item {
+    width: 25%;
+    text-align: center;
+    padding-bottom: 10rpx;
+    position: relative;
+    overflow: hidden;
+}
+.about-wrap .about-wrap-item button {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+}
+.about-wrap .iconfont {
+    color: #cdb288;
+    font-size: 40rpx;
+}

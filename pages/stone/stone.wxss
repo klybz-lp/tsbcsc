@@ -1,0 +1,142 @@
+.search {
+    margin: 40rpx 30rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding: 10rpx 0;
+    text-align: center;
+    font-size: 26rpx;
+    color: #b5b5b5;
+    background: #f1f1f1;
+    border-radius: 80rpx;
+    position: relative;
+}
+.search input {
+    height: 100%;
+    font-size: 26rpx;
+}
+.search text {
+    height: 58rpx;
+    width: 140rpx;
+    line-height: 58rpx;
+    border-radius: 58rpx;
+    text-align: center;
+    background: #cdb288;
+    font-size: 26rpx;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: 1px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+.search image, .search icon {
+    position: absolute;
+    top: 13rpx;
+    left: 280rpx;
+}
+.project {
+    margin: 0 30rpx;
+    position: relative;
+}
+project-head {
+    position: relative;
+}
+.project-tab {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.project-tab .tab-item {
+    font-size: 26rpx;
+    color: #000;
+    text-align: center;
+    background: #f1f1f1;
+    padding: 2rpx 20rpx;
+}
+.project-tab .active {
+    background-color: #cdb288;
+}
+.project-tab text.active {
+    transform:rotate(270deg);
+    -webkit-transform:rotate(270deg);
+    background-color: none;
+}
+.project-tab .tab-item .text {
+    padding-right: 10rpx;
+}
+.project-tab .tab-item .iconfont {
+    font-size: 24rpx;
+    position: relative;
+    display: inline-block;
+}
+.tab-list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60rpx;
+    background: #f1f1f1;
+    padding: 30rpx 30rpx 20rpx;
+    z-index: 10;
+}
+.tab-list text {
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+    font-size: 26rpx;
+    color: #333;
+    padding-bottom: 10rpx;
+}
+.project_main {
+    margin: 40rpx 0rpx;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.project_main .project_item {
+    border: 2px solid #dedede;
+    width: 330rpx;
+    box-sizing: border-box;
+    margin-bottom: 30rpx;
+    border-radius: 20rpx 20rpx 0 0;
+}
+.project_main .project_item .project_pic {
+    width: 280rpx;
+    height: 160rpx;
+    overflow: hidden;
+    background: #f5f2f2;
+    margin: 20rpx auto 0;
+    position: relative;
+}
+.project_main .project_item .project_pic image {
+    width: 100%;
+}
+.project_main .project_item .project_text {
+    width: 90%;
+    padding: 10rpx 20rpx;
+    background: rgba(255, 255, 255, .5);
+    font-size: 24rpx;
+    color: #000;
+    position: absolute;
+    left: 5%;
+    bottom: 0;
+}
+.project_main .project_item .project_button {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    border: 2px solid #bfbfbf;
+    box-sizing: border-box;
+}
+.project_main .project_item .project_button text,.project_main .project_item .project_button navigator {
+    flex: 1;
+    text-align: center;
+    font-size: 24rpx;
+    color: #000;
+    background: #fff;
+}
+.project_main .project_item .project_button text {
+    border-right: 2px solid #bfbfbf;
+}

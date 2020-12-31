@@ -1,0 +1,7 @@
+{
+    "usingComponents": {},
+    "navigationBarTitleText": "供需列表",
+    "enablePullDownRefresh": false,
+    "backgroundTextStyle": "dark",
+    "onReachBottomDistance": 10
+}

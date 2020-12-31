@@ -1,0 +1,94 @@
+/**index.wxss**/
+.container {
+  padding: 60rpx 30rpx;
+}
+.about {
+  padding-bottom: 30rpx;
+  margin-bottom: 30rpx;
+  border-bottom: 1px solid #f3f3f3;
+}
+.about image {
+    width: 400rpx;
+    margin: 40rpx auto;
+    display: block;
+}
+.about .name {
+    font-size: 32rpx;
+    color: #333;
+    text-align: center;
+    display: block;
+}
+.info view {
+    display: block;
+    text-align: center;
+    color: #000;
+    font-size: 28rpx;
+}
+.info .notice {
+    padding: 20rpx 0 0 0;
+    color: #c1c1c1;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+.info .notice .dot {
+    position: relative;
+    padding-right: 10rpx;
+    top: -5rpx;
+}
+.btn {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50rpx auto;
+}
+.btn button {
+  width: 300rpx !important;
+  padding: 8px 0 !important;
+  font-weight: normal !important;
+  font-size: 14px !important;
+
+}
+.btn button.cancel {
+  background-color: #ccc;
+  color: #fff;
+}
+.btn button.yes {
+  background-color: #56bb37;
+  color: #fff;
+}
+.identity {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #fff;
+}
+.identity_main {
+  padding: 30rpx 0;
+}
+.identity_title {
+  font-size: 16px;
+  padding: 0 0 20rpx 16px;
+  font-weight: 550;
+}
+.weui-cells {
+  font-size: 15px;
+}
+radio {
+  transform:scale(0.8);
+}
+.identity_footer {
+  margin-top: 30rpx;
+}
+.identity_footer button {
+  width: 700rpx !important;
+  padding: 8px 0 !important;
+  font-weight: normal !important;
+  font-size: 14px !important;
+  background-color: #56bb37;
+  color: #fff;
+}

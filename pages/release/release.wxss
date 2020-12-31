@@ -1,0 +1,141 @@
+.tab {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tab .item {
+    flex: 1;
+    height: 55rpx;
+    line-height: 55rpx;
+    font-size: 26rpx;
+    text-align: center;
+    font-weight: bold;
+    color: #575757;
+    background-color: #f1f1f1;
+}
+.tab .active {
+    background-color: #cdb288;
+    color: #000;
+}
+.release {
+    padding: 30rpx 0;
+    margin-top: 70rpx;
+}
+.form_item {
+    margin-bottom: 40rpx;
+    padding: 0 30rpx;
+    overflow: hidden;
+}
+.form_item .label {
+    font-size: 30rpx;
+    font-weight: 550;
+    color: #575757;
+    text-align: center;
+}
+.form_item .notice {
+    font-size: 26rpx;
+    color: #898989;
+    text-align: center;
+    margin: 10rpx 0;
+}
+.form_item input,.form_item textarea {
+    width: 630rpx;
+    background: #f1f1f1;
+    font-size: 28rpx;
+    color: #898989;
+    padding: 10rpx 30rpx;
+    border-radius: 30rpx;
+    text-align: center;
+}
+.form_item_user {
+    border-top: 10rpx solid #f1f1f1;
+    padding: 10rpx 30rpx;
+}
+.supply_user {
+    font-size: 30rpx;
+    font-weight: 550;
+    color: #575757;
+    text-align: center;
+    margin: 20rpx 0;
+}
+.form_user_item {
+    width: 550rpx;
+    margin: 0 auto 20rpx;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+}
+.form_user_item view {
+    width: 160rpx;
+    color: #333;
+    font-weight: 530;
+}
+.form_user_item input {
+    flex: 1;
+}
+.release_form_item {
+    margin: 0 auto 50rpx;
+}
+.form_user_item input {
+    text-align: left;
+}
+.release_form_item button {
+    width: 180rpx !important;
+    margin: 20rpx auto 0;
+    padding: 10rpx 0rpx !important;
+    background: #cdb288;
+    border-radius: 60rpx;
+    font-weight: 500 !important;
+    font-size: 30rpx !important;
+}
+.up-tool {
+    text-align: center;
+}
+.up-tool button {
+    width: 100rpx !important;
+    height: 100rpx !important;
+    margin: 20rpx 20rpx 0 20rpx;
+    font-size: 50rpx !important;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+    font-weight: 0;
+}
+.up-tool image {
+    width: 150rpx;
+    height: 150rpx;
+    display: block;
+    margin: 30rpx auto 10rpx;
+}
+.up-tool text {
+    font-size: 26rpx;
+    color: #898989;
+    padding-top: 10rpx;
+}
+.upimg-items {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    margin: 30rpx 0 0 0;
+}
+.upimg-item {
+    width: 155rpx;
+    /* height: 155rpx; */
+    margin: 0 25rpx 30rpx 0;
+    position: relative;
+}
+.upimg-item:nth-child(4n) {
+    margin-right: 0;
+}
+.upimg-item .thumb {
+    width: 100%;
+}
+.upimg-item icon {
+    position: absolute;
+    top: -22rpx;
+    right: -22rpx;
+    z-index: 100;
+}

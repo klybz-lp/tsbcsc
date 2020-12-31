@@ -1,0 +1,40 @@
+.container {
+    padding: 30rpx;
+}
+.item {
+    display: flex;
+    display: -webkit-flex;
+    font-size: 30rpx;
+    color: #333;
+    margin-bottom: 20rpx;
+}
+.item .key {
+    font-weight: 550;
+    width: 160rpx;
+    color: #333;
+    /* text-align: right; */
+}
+.item .value {
+   flex: 1;
+}
+.remark {
+    margin-bottom: 20rpx;
+    font-size: 30rpx;
+}
+.remark .key {
+    font-weight: 550;
+    color: #333;
+    margin-bottom: 10rpx;
+}
+.remark .value {
+    color: #333;
+    font-size: 30rpx;
+    line-height: 42rpx;
+}
+.pics {
+    width: 100%;
+}
+.pics image {
+    width: 100%;
+    margin-bottom: 10rpx;
+}

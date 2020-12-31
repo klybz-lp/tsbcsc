@@ -1,0 +1,137 @@
+.cooper_head {
+    width: 600rpx;
+    margin: 30rpx auto;
+    position: relative;
+    padding-top: 80rpx;
+}
+.cooper_head .icon_fav {
+    width: 50rpx;
+    position: absolute;
+    top: 10rpx;
+    right: 80rpx;
+    z-index: 10;
+}
+.cooper_head .icon_share {
+    width: 50rpx;
+    position: absolute;
+    top: 10rpx;
+    right: 20rpx;
+}
+.cooper_head button {
+    width: 60rpx !important;
+    height: 60rpx;
+    position: absolute;
+    padding: 0 !important;
+    top: 10rpx;
+    right: 15rpx;
+    z-index: 11;
+    opacity: 0;
+}
+.cooper_logo {
+    width: 180rpx;
+    height: 180rpx;
+    margin: 0 auto;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.cooper_logo image {
+    width: 100%;
+}
+.cooper_name {
+    font-size: 32rpx;
+    font-weight: 550;
+    margin: 30rpx 0 20rpx;
+    color: #333;
+    text-align: center;
+}
+.cooper_mobile {
+    width: 180rpx;
+    height: 45rpx;
+    line-height: 45rpx;
+    border-radius: 45rpx;
+    font-size: 28rpx;
+    background-color: #cdb288;
+    color: #000;
+    margin: 0 auto 15rpx;
+    text-align: center;
+}
+.cooper_info {
+    padding: 30rpx 30rpx 0;
+}
+.cooper_flag {
+    height: 55rpx;
+    line-height: 55rpx;
+    font-size: 30rpx;
+    font-weight: 550;
+    text-align: center;
+    color: #cdb288;
+    background-color: #000;
+    letter-spacing: 2px;
+}
+.cooper_about {
+    font-size: 28rpx;
+    color: #333;
+    margin: 40rpx 0 30rpx;
+    line-height: 38rpx;
+    text-align: center;
+}
+.cooper_relation {
+    padding: 30rpx;
+}
+.cooper_tab {
+    height: 60rpx;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cooper_tab text {
+    width: 49%;
+    height: 100%;
+    line-height: 60rpx;
+    text-align: center;
+    background-color: #000;
+    color: #cdb288;
+    font-size: 26rpx;
+}
+.cooper_tab text.active {
+    background-color: #cdb288;
+    color: #000;
+}
+.cooper_content {
+    margin: 40rpx 0 0 0;
+}
+.cooper_detail image {
+    max-width: 100%;
+    display: block;
+    margin: 20rpx auto;
+}
+.cooper_case_main {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.cooper_case_main .cooper_case_item {
+    width: 330rpx;
+    padding: 20rpx;
+    background: #eee;
+    box-sizing: border-box;
+    margin: 0 0 20rpx 0;
+}
+.cooper_case_main .cooper_case_item .cooper_case_pic {
+    width: 290rpx;
+    height: 166rpx;
+    overflow: hidden;
+}
+.cooper_case_main .cooper_case_item .cooper_case_pic image {
+    width: 100%;
+    margin-top: 0;
+}
+.cooper_case_main .cooper_case_item .cooper_case_name {
+    font-size: 28rpx;
+    color: #575757;
+    line-height: 32rpx;
+    margin-top: 20rpx;
+}

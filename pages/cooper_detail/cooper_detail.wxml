@@ -1,0 +1,46 @@
+<view class="container">
+    <view class="cooper_head">
+        <image class="icon_fav" mode="widthFix" src="{{isFav ? 'https://stcdn.taoshibancang.com/static/wechat/icon_fav_select.png' : 'https://stcdn.taoshibancang.com/static/wechat/icon_fav.png'}}" catchtap="fav"></image>
+        <image class="icon_share" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/icon_share.png"></image>
+        <button open-type="share"></button>
+        <view class="cooper_logo">
+            <image mode="widthFix" src="{{cooper.logo_path}}"></image>
+        </view>
+        <view class="cooper_name">{{cooper.name}}</view>
+        <view class="cooper_mobile" catchtap="call">联系TA</view>
+    </view>
+    <view class="cooper_info">
+        <view class="cooper_flag">简介</view>
+        <view class="cooper_about">{{cooper.about}}</view>
+    </view>
+    <view class="cooper_relation">
+        <view class="cooper_tab">
+            <text data-id="1" ontap="selectTab" class="{{currentTab==1 ? 'active' : ''}}">项目案例</text>
+            <text data-id="2" ontap="selectTab" class="{{currentTab==2 ? 'active' : ''}}">图片集</text>
+        </view>
+        <view class="cooper_content">
+            <view class="cooper_detail" hidden="{{currentTab!=1}}">
+                <view class="cooper_case_main">
+                    <navigator class="cooper_case_item" wx:for="{{case}}" wx:key="index" url="../cooper_case/cooper_case?id={{item.id}}">
+                        <view class="cooper_case_pic">
+                            <image mode="widthFix" src="{{item.images[0]['file_path']}}"></image>
+                        </view>
+                        <view class="cooper_case_name">{{item.name}}</view>
+                    </navigator>
+                </view>
+                <view class="loadingMore">
+                    <text wx:if="{{noData}}">数据加载完毕</text>
+                    <view class="loading" wx:if="{{!noData}}">
+                        <text class="load"></text>
+                        <text>数据加载中...</text>
+                    </view>
+                </view>
+            </view>
+            <view class="cooper_detail" hidden="{{currentTab!=2}}">
+                <block wx:for="{{cooper.images}}" wx:key="{{item.id}}">
+                    <image mode="widthFix" src="{{item.file_path}}"/>
+                </block>
+            </view>
+        </view>
+    </view>
+</view>

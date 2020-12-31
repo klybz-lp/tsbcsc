@@ -1,0 +1,18 @@
+<!--components/segment-panel/segment-panel.wxml-->
+<view class="segment-container segments">
+    <!-- 引入其他自定义组件,segmentBar属性是segment-bar.js里设置的属性， -->
+    <segment-bar id="bar" segmentBar="{{segmentItem}}" bind:selectChange="selectChange" />
+    <view class="segment-panel">
+        <swiper circular="{{circular}}" current="{{current}}" bindchange="swiperChange">
+            <block wx:for="{{segmentItem.length}}" wx:key="index">
+            <swiper-item>
+                <view class="swiper-item">
+                    <scroll-view scroll-y>
+                        <slot name="{{index}}"></slot>
+                    </scroll-view>
+                </view>
+            </swiper-item>
+            </block>
+        </swiper>
+    </view>
+</view>

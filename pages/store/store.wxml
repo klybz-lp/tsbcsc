@@ -1,0 +1,54 @@
+<view class="container">
+    <view class="search">
+        <form>
+            <icon class="icon-small" type="search" size="34rpx" wx:if="{{showIcon}}"></icon>
+            <input class="weui-input" placeholder="搜索商家名称" bindfocus="inputFocus" bindblur="blurFocus" bindinput="inputSearch"/>
+            <text bindtap="searchStore">搜索</text>
+        </form>
+    </view> 
+    <view class="project">
+        <view class="project-tab">
+            <block wx:for="{{storeCategory}}" wx:key="index">
+            <view class="tab-item {{category_id == item.id? 'active' : ''}}" data-id="{{item.id}}"  bindtap="selectTab">{{item.name}}</view>
+            </block>
+        </view>
+        <view class="project_main">
+            <block wx:for="{{store}}" wx:for-item="item" wx:key="index">
+            <view class="project_item">
+                <view class="project_h">
+                    <navigator url="/pages/store_detail/store_detail?id={{item.id}}" class="store_thumb">
+                        <image mode="widthFix" src="{{item.logo_path}}"></image>
+                    </navigator>
+                    <navigator url="/pages/store_detail/store_detail?id={{item.id}}" class="store_info">
+                        <view class="store_name ellipsis">{{item.name}}</view>
+                        <view class="store_bussiness ellipsis_two">主营业务：{{item.business}}</view>
+                    </navigator>
+                    <navigator class="store_forward" url="/pages/store_detail/store_detail?id={{item.id}}">
+                        <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
+                    </navigator>
+                </view>
+                <view class="project_b">
+                    <navigator url="/pages/stone_detail/stone_detail?id={{sitem.id}}" class="store_pics" wx:for="{{item.stone}}" wx:for-item="sitem" wx:key="index">
+                        <image mode="widthFix" src="{{sitem.stone_cover}}" />
+                      
+                    </navigator>
+                    <view wx:for="{{3-item.stone.length}}" wx:key="*this" class="store_pics">
+                        <image mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/stone_thumb.jpg"></image>
+                    </view>
+                    <view class="store_pics store_contact" data-mobile="{{item.mobile}}" bindtap="call">
+                        <text class="iconfont icon-dianhua1"></text>
+                        <text>联系商家</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="loadingMore">
+                <text wx:if="{{noData}}">数据加载完毕</text>
+                <view class="loading" wx:if="{{!noData}}">
+                    <text class="load"></text>
+                    <text>数据加载中...</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

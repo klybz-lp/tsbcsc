@@ -1,0 +1,47 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="about">
+        <image mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/logo_login.png"></image>
+        <text class="name">陶石石材商城</text>
+    </view>
+    <block wx:if="{{!showMobile}}">
+    <view class="info">
+      <view>想获取您的微信信息</view>
+      <view class="notice">
+        <text class="dot">.</text>
+        <text>获得您的公开信息(昵称、头像等)</text>
+      </view>
+    </view>
+    <view class="btn">
+        <button class="cancel" ontap="onNotLogin">拒绝</button>
+        <button class="yes" lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="getUserInfo">允许</button>
+    </view>
+    </block>
+    <block wx:else>
+      <view class="btn">
+        <button class="yes" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 获取手机号码</button>
+      </view>
+    </block>
+    <!-- 身份选择 -->
+    <view class="identity" wx:if="{{showIdentity}}">
+        <view class="identity_main">
+            <view class="identity_title">请选择您的身份</view>
+            <view class="identity_body">
+              <view class="weui-cells weui-cells_after-title">
+                <radio-group bindchange="radioChange">
+                  <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="*this">
+                    <view class="weui-cell__hd">
+                      <radio value="{{item.value}}" checked="{{item.value == identity}}"/>
+                    </view>
+                    <view class="weui-cell__bd">{{item.name}}</view>
+                  </label>
+                </radio-group>
+              </view>
+            </view>
+            <view class="identity_footer">
+                <!-- <button type="primary" catchtap="identitySure">确认</button> -->
+                <button class="loginBtn" lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信一键登录</button>
+            </view>
+        </view>
+    </view>
+</view>

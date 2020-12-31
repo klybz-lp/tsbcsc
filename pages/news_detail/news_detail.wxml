@@ -1,0 +1,14 @@
+<view class="container">
+    <view class="news_header">
+        <view class="news_title">{{news.title}}</view>
+        <view class="news_time">发布时间：{{news.ctime}}</view>
+    </view>
+    <view class="news_body">
+        <view class="news_banner">
+            <image mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/news_banner.jpg"></image>
+        </view>
+        <view class="news_info">
+            <rich-text nodes="{{info}}"></rich-text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,28 @@
+.news_header {
+    padding: 30rpx;
+    border-top: 10rpx solid #f1f0f5;
+    border-bottom: 1px solid #f1f0f5;
+}
+.news_title {
+    font-size: 30rpx;
+    color: #282828;
+    line-height: 40rpx;
+    font-weight: 550;
+    margin: 10rpx 0 20rpx;
+    text-align: center;
+}
+.news_time {
+    font-size: 26rpx;
+    color: #7f7e7e;
+    text-align: center;
+}
+.news_body {
+    padding: 30rpx;
+}
+.news_banner {
+    width: 100%;
+    margin-bottom: 30rpx;
+}
+.news_banner image {
+    width: 100%;
+}

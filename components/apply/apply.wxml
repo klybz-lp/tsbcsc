@@ -1,0 +1,52 @@
+<view catchtouchmove="true" class="dialog_apply {{showApplyDialog ? 'showApplyDialog' : ''}}">
+    <view class="dialog_main">
+        <view class="dialog_title">
+            <text>索取样品</text>
+            <text ontap="hideDialog" class="close">X</text>
+        </view>
+        <view class="dialog_content">
+            <!-- <view class="dialog_info">
+                <view class="dialog_thumb">
+                    <image mode="widthFix" src="{{applyData.pic}}"/>
+                </view>
+                <view class="dialog_no">产品编号：#{{applyData.stone_id}}</view>
+            </view> -->
+            <view class="dialog_form">
+                <!-- <view class="dialog_form_tit">填写信息</view> -->
+                <form bindsubmit="formSubmit">
+                    <view class="dialog_form_item">
+                        <text>您的名字：</text>
+                        <input name="user_name" placeholder="张三" value="{{inputValue}}" />
+                    </view>
+                    <view class="dialog_form_item">
+                        <text>联系方式：</text>
+                        <input name="mobile" placeholder="如：13800009999" value="{{inputValue}}" />
+                    </view>
+                    <view class="dialog_form_item dialog_form_address">
+                        <text>项目名称：</text>
+                        <input name="project_name" placeholder="请输入项目名称" value="{{inputValue}}" />
+                    </view>
+                    <view class="dialog_form_item dialog_form_address">
+                        <text>项目地址：</text>
+                        <input name="project_address" placeholder="请输入项目地址" value="{{inputValue}}" />
+                    </view>
+                    <view class="dialog_form_item dialog_form_address">
+                        <text>邮寄地址：</text>
+                        <input name="address" placeholder="如：xx省xx市xx区xx路xx号" value="{{inputValue}}" />
+                    </view>
+                    <view class="dialog_form_item dialog_form_address">
+                        <text>样品数量：</text>
+                        <input name="num" type="number" placeholder="" value="{{inputValue}}" />
+                    </view>
+                    <view class="dialog_form_item dialog_form_address">
+                        <text>备注：</text>
+                        <input name="remark" placeholder="请输入备注" value="{{inputValue}}" />
+                    </view>
+                    <view class="dialog_form_item">
+                        <button form-type="submit">提交</button>
+                    </view>
+                </form>
+            </view>
+        </view>
+    </view>
+</view>

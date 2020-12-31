@@ -1,0 +1,7 @@
+<view class="container">
+    <view class="about">
+        <view class="main">
+            <rich-text nodes="{{info}}"></rich-text>
+        </view>
+    </view>
+</view>

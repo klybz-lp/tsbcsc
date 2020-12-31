@@ -1,0 +1,110 @@
+/* dialog_apply */
+.dialog_apply {
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .7);
+    z-index: 1000;
+    /* visibility: hidden;
+    opacity: 0; */
+    display: none;
+    transition: all .3s;
+}
+.showApplyDialog {
+    /* visibility: visible;
+    opacity: 1; */
+    display: block;
+}
+.dialog_apply .dialog_main {
+    width: 700rpx;
+    padding: 20rpx 30rpx;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    box-sizing: border-box;
+}
+.dialog_apply .dialog_title {
+    overflow: hidden;
+    text-align: center;
+    font-size: 35rpx;
+    font-weight: 500;
+    color: #000;
+    position: relative;
+}
+.dialog_apply .close {
+    position: absolute;
+    top: -20rpx;
+    right: -20rpx;
+    padding: 20rpx;
+}
+.dialog_content {
+    margin-top: 40rpx;
+}
+.dialog_apply .dialog_info {
+    margin: 30rpx 0 20rpx;
+
+}
+.dialog_apply .dialog_thumb {
+    width: 400rpx;
+    height: 230rpx;
+    overflow: hidden;
+    margin: 0 auto;
+    background: #f5f2f2;
+}
+.dialog_apply .dialog_thumb image {
+    width: 100%;
+}
+.dialog_apply .dialog_no {
+    text-align: center;
+    font-size: 28rpx;
+    color: #898989;
+    padding: 10rpx 0 0 0;
+}
+.dialog_apply .dialog_form_tit {
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #575757;
+    text-align: center;
+    margin-bottom: 20rpx;
+}
+.dialog_apply .dialog_form_item {
+    width: 600rpx;
+    margin: 0 auto 20rpx;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+}
+.dialog_apply .dialog_form_address {
+    align-items: flex-start;
+}
+.dialog_apply .dialog_form_item text {
+    width: 150rpx;
+    font-size: 28rpx;
+    color: #575757;
+}
+.dialog_apply .dialog_form_item input,.dialog_apply .dialog_form_item textarea {
+    flex: 1;
+    background: #f1f1f1;
+    font-size: 28rpx;
+    color: #898989;
+    padding: 10rpx 20rpx;
+    border-radius: 10rpx;
+}
+.dialog_apply .dialog_form_item textarea {
+    height: 100rpx;
+    border-radius: 25rpx;
+}
+.dialog_apply button {
+    width: 240rpx;
+    margin: 20rpx auto 0;
+    padding: 10rpx 0rpx !important;
+    background: #cdb288;
+    border-radius: 10rpx;
+    font-weight: 500 !important;
+    font-size: 30rpx !important;
+}

@@ -1,0 +1,122 @@
+.search {
+    margin: 40rpx 30rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding: 10rpx 0;
+    text-align: center;
+    font-size: 26rpx;
+    color: #b5b5b5;
+    background: #f1f1f1;
+    border-radius: 80rpx;
+    position: relative;
+}
+.search input {
+    height: 100%;
+    font-size: 26rpx;
+}
+.search text {
+    height: 58rpx;
+    width: 140rpx;
+    line-height: 58rpx;
+    border-radius: 58rpx;
+    text-align: center;
+    background: #cdb288;
+    font-size: 26rpx;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: 1px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+.search image, .search icon {
+    position: absolute;
+    top: 13rpx;
+    left: 200rpx;
+}
+.project {
+    margin: 0 30rpx;
+}
+.project-tab {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.project-tab .tab-item {
+    width: 150rpx;
+    height: 55rpx;
+    line-height: 55rpx;
+    border-radius: 10rpx;
+    font-size: 26rpx;
+    text-align: center;
+    font-weight: bold;
+    color: #575757;
+    background-color: #f1f1f1;
+}
+.project-tab .active {
+    background-color: #cdb288;
+    color: #000;
+}
+.project_main {
+    margin: 90rpx 0rpx 60rpx;
+}
+.project_item {
+    width: 690rpx;
+    background-color: #f1f1f1;
+    padding: 50rpx 30rpx;
+    box-sizing: border-box;
+    margin-bottom: 110rpx;
+    text-align: center;
+    position: relative;
+}
+.project_item .cooper_logo {
+    width: 150rpx;
+    height: 150rpx;
+    margin: 0 auto;
+    border-radius: 50%;
+    background-color: #b5b5b5;
+    overflow: hidden;
+}
+.project_item .cooper_logo image {
+    width: 100%;
+}
+.project_item .cooper_name {
+    font-size: 30rpx;
+    color: #323232;
+    font-weight: 550;
+    margin: 20rpx 0 15rpx;
+}
+.project_item .cooper_mobile {
+    width: 160rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    border-radius: 40rpx;
+    font-size: 26rpx;
+    background-color: #cdb288;
+    color: #000;
+    margin: 0 auto 15rpx;
+}
+.project_item .cooper_about {
+    font-size: 26rpx;
+    color: #575757;
+    line-height: 36rpx;
+}
+.project_item .cooper_remark {
+    width: 100%;
+    font-size: 28rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    padding: 0rpx 20rpx;
+    background-color: #000;
+    color: #cdb288;
+    position: absolute;
+    top: -30rpx;
+    left: 0;
+    text-align: left;
+    transform: translateY(-50%);
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+}

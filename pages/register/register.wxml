@@ -1,0 +1,78 @@
+<view class="container">
+    <view class="notice" wx:if="{{isStore}}">
+        <view class="notice_f1"><icon class="icon-box-img" type="success" size="16"></icon>你已经是注册账户</view>
+        <!-- <view class="notice_f2">请尽快登录商户后台完善信息</view> -->
+        <view class="notice_f4">账户：{{userInfo.store_name}}</view>
+        <view class="notice_f5">初始密码：123456</view>
+        <view class="notice_f6" catchtap="openBack">登录后台</view>
+    </view>
+    <form bindsubmit="formSubmit" wx:else>
+        <view class="form_item">
+            <view class="label">
+                <text class="dot">*</text>
+                <text class="val">公司名称</text>
+            </view>
+            <view class="value">
+                <input name="name" placeholder="请填写公司名称" placeholder-style="color:#c1c1c1;" />
+            </view>
+        </view>
+        <view class="form_item">
+            <view class="label">
+                <text class="dot">*</text>
+                <text class="val">商家类型</text>
+            </view>
+            <view class="value">
+                <picker mode="selector" bindchange="bindPickerChange" value="0" range-key="name" range="{{storeCategory}}">
+                    <view class="picker {{storeCategory[index].name ? '' : 'gray'}}">
+                    {{storeCategory[index].name ? storeCategory[index].name : '请选择'}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="form_item">
+            <view class="label">
+                <text class="dot">*</text>
+                <text class="val">主营产品</text>
+            </view>
+            <view class="value">
+                <input name="business" placeholder="不超过30字" placeholder-style="color:#c1c1c1;" />
+            </view>
+        </view>
+        <view class="form_item">
+            <view class="label">
+                <text class="dot">*</text>
+                <text class="val">联系人</text>
+            </view>
+            <view class="value">
+                <input name="contact" placeholder="请填写" placeholder-style="color:#c1c1c1;" />
+            </view>
+        </view>
+        <view class="form_item">
+            <view class="label">
+                <text class="dot">*</text>
+                <text class="val">手机</text>
+            </view>
+            <view class="value">
+                <input name="mobile" placeholder="请填写" placeholder-style="color:#c1c1c1;" />
+            </view>
+        </view>
+        <view class="form_item">
+            <view class="label">
+                <text class="dot">*</text>
+                <text class="val">省市</text>
+            </view>
+            <view class="value">
+                <picker mode="multiSelector" bindchange="pkIndex" bindcolumnchange="pkCol" range-key="name" range="{{p_c}}">
+                    <view class="picker  {{city_id != 0 ? '' : 'gray'}}">
+                        <text hidden="{{city_id != 0}}">请选择</text>
+                        <text hidden="{{city_id == 0}}">{{p_c[0][pcIndex[0]].name}}{{p_c[1][pcIndex[1]].name}}</text>
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="form_submit">
+            <button form-type="submit">注册</button>
+            <text>跳过，直接进入</text>
+        </view>
+    </form>
+</view>

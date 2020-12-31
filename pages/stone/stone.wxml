@@ -1,0 +1,68 @@
+<view class="container">
+    <view class="search">
+        <form>
+            <!-- <image mode="widthFix" bindfocus="inputFocus" bindblur="blurFocus"src="/assets/image/icon_search.png" wx:if="{{showIcon}}"></image> -->
+            <icon class="icon-small" type="search" size="34rpx" hidden="{{!showIcon}}"></icon>
+            <input class="weui-input" placeholder="岩板" bindfocus="inputFocus" bindblur="blurFocus" bindinput="inputSearch"/>
+            <text bindtap="searchStone">搜索</text>
+        </form>
+    </view> 
+    <view class="project">
+        <view class="project-head">
+            <view class="project-tab">
+                <view class="tab-item {{currentIndex == 1 ? 'active' : ''}}" data-id="1" bindtap="toggleTab">
+                    <text class="text">{{species_text}}</text>
+                    <text class="iconfont icon-sanjiao1 {{currentIndex == 1 ? 'active' : ''}}"></text>
+                </view>
+                <view class="tab-item {{currentIndex == 2 ? 'active' : ''}}" data-id="2" bindtap="toggleTab">
+                    <text class="text">{{color_text}}</text>
+                    <text class="iconfont icon-sanjiao1 {{currentIndex == 2 ? 'active' : ''}}"></text>
+                </view>
+                <view class="tab-item {{currentIndex == 3 ? 'active' : ''}}" data-id="3" bindtap="toggleTab">
+                    <text class="text">{{texture_text}}</text>
+                    <text class="iconfont icon-sanjiao1 {{currentIndex == 3 ? 'active' : ''}}"></text>
+                </view>
+            </view>
+            <view class="tab-list tab-list-1" hidden="{{currentTab != 1}}">
+                <block wx:for="{{stoneType['species']}}" wx:key="index">
+                <text data-index="{{index}}" data-type="species" bindtap="selectItem">{{item.name}}</text>
+                </block>
+            </view>
+            <view class="tab-list tab-list-2" hidden="{{currentTab != 2}}">
+                <block wx:for="{{stoneType['color']}}" wx:key="index">
+                <text data-index="{{index}}" data-type="color" bindtap="selectItem">{{item.name}}</text>
+                </block>
+            </view>
+            <view class="tab-list tab-list-3" hidden="{{currentTab != 3}}">
+                <block wx:for="{{stoneType['texture']}}" wx:key="index">
+                <text data-index="{{index}}" data-type="texture" bindtap="selectItem">{{item.name}}</text>
+                </block>
+            </view>
+        </view>
+        <view class="project_main">
+            <block wx:for="{{stone}}" wx:key="index">
+            <view class="project_item">
+                <navigator class="project_pic" url="/pages/stone_detail/stone_detail?id={{item.id}}">
+                    <image mode="widthFix" src="{{item.stone_cover}}" />
+                    <view class="project_text ellipsis">{{item.name}}</view>
+                </navigator>
+                <view class="project_button">
+                    <text data-item="{{item}}" ontap="apply">索取样品({{item.apply_count}})</text>
+                    <navigator url="/pages/stone_detail/stone_detail?id={{item.id}}&name={{item.name}}">
+                    详情
+                    </navigator>
+                </view>
+            </view>
+            </block>
+            <view class="loadingMore">
+                <text wx:if="{{noData}}">数据加载完毕</text>
+                <view class="loading" wx:if="{{!noData}}">
+                    <text class="load"></text>
+                    <text>数据加载中...</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 申请样品弹窗 -->
+    <apply showApplyDialog="{{showApplyDialog}}" applyData="{{applyData}}"  bind:hideApply="hideApply" />
+</view>

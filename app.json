@@ -1,0 +1,78 @@
+{
+    "pages":[
+        "pages/index/index",
+        "pages/stone/stone",
+        "pages/stone_detail/stone_detail",
+        "pages/release/release",
+        "pages/about/about",
+        "pages/search/search",
+        "pages/store/store",
+        "pages/store_detail/store_detail",
+        "pages/cooper/cooper",
+        "pages/cooper_detail/cooper_detail",
+        "pages/cooper_case/cooper_case",
+        "pages/supply/supply",
+        "pages/news/news",
+        "pages/news_detail/news_detail",
+        "pages/company/company",
+        "pages/contanct/contanct",
+        "pages/login/login",
+        "pages/register/register",
+        "pages/register/backend",
+        "pages/fav/fav",
+        "pages/publish/publish"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "陶石石材商城",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#666666",
+        "selectedColor": "#000000",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "/assets/image/home.png",
+                "selectedIconPath": "/assets/image/home-select.png"
+            },
+            {
+                "pagePath": "pages/stone/stone",
+                "text": "分类",
+                "iconPath": "/assets/image/category.png",
+                "selectedIconPath": "/assets/image/category-select.png"
+            },
+            {
+                "pagePath": "pages/release/release",
+                "text": "供需发布",
+                "iconPath": "/assets/image/release.png",
+                "selectedIconPath": "/assets/image/release-select.png"
+            },
+            {
+                "pagePath": "pages/contanct/contanct",
+                "text": "客服热线",
+                "iconPath": "/assets/image/service.png",
+                "selectedIconPath": "/assets/image/service-select.png"
+            },
+            {
+                "pagePath": "pages/about/about",
+                "text": "我的",
+                "iconPath": "/assets/image/about.png",
+                "selectedIconPath": "/assets/image/about-select.png"
+            }
+        ]
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    },
+    "navigateToMiniProgramAppIdList": [
+        "wxf5aef99392ba9fbc"
+    ],
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+    
+}

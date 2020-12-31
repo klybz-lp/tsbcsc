@@ -1,0 +1,186 @@
+.tab {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20rpx 30rpx;
+}
+.tab .item {
+    width: 150rpx;
+    height: 55rpx;
+    line-height: 55rpx;
+    border-radius: 10rpx;
+    font-size: 26rpx;
+    text-align: center;
+    font-weight: bold;
+    color: #575757;
+    background-color: #f1f1f1;
+}
+.tab .active {
+    background-color: #cdb288;
+    color: #000;
+}
+.scrole_y {
+    height: 100vh;
+    overflow-y: hidden;
+}
+.supply {
+    margin-top: 75rpx;
+    padding: 0rpx 0 30rpx;
+}
+.supply_item {
+    border-top: 10rpx solid #f1f0f5;
+    padding: 20rpx 30rpx;
+}
+.supply_item .supply_time {
+    font-size: 26rpx;
+    color: #878686;
+    text-align: right;
+}
+.supply_item .supply_title {
+    font-size: 28rpx;
+    color: #575757;
+    line-height: 36rpx;
+    margin: 5rpx 0 30rpx;
+}
+.supply_item .supply_pics {
+    width: 690rpx;
+    display: flex;
+    display: -webkit-flex;
+}
+.supply_item .supply_pics_item {
+    width: 220rpx;
+    height: 128rpx;
+    overflow: hidden;
+}
+.supply_item .supply_pics_item:nth-child(2) {
+    margin: 0 15rpx;
+}
+.supply_item .supply_pics_item image {
+    width: 100%;
+}
+.supply_item .supply_contact {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30rpx 0;
+    border: 2px solid #cdb288;
+    font-size: 24rpx;
+    color: #383838;
+    box-sizing: border-box;
+    height: 60rpx;
+    line-height: 55rpx;
+}
+.supply_item .name {
+    height: 100%;
+    padding: 0 20rpx;
+    border-right: 2px solid #cdb288;
+}
+.supply_item .mobile {
+    height: 100%;
+    text-align: center;
+}
+.supply_item .view {
+    height: 100%;
+    background: #cdb288;
+    padding: 0 20rpx;
+}
+
+/* supply_dialog */
+.supply_dialog {
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .7);
+    z-index: 1000;
+    display: block;
+    transition: all .3s;
+}
+.dialog_main {
+    width: 710rpx;
+    height: 700rpx;
+    overflow: hidden;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    box-sizing: border-box;
+
+}
+.dialog_main .dialog_content {
+    height: 590rpx;
+    margin: 40rpx 0 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+.dialog_title {
+    font-size: 32rpx;
+    color: #000;
+    font-weight: 550;
+    text-align: center;
+    margin-bottom: 40rpx;
+}
+.dialog_main .dialog_item {
+    font-size: 28rpx;
+    color: #575757;
+    margin-bottom: 20rpx;
+    display: flex;
+    display: -webkit-flex;
+    padding: 0 30rpx;
+}
+.dialog_main .dialog_item .label {
+    width: 220rpx;
+    text-align: right;
+}
+.dialog_main .dialog_item .value {
+    flex: 1;
+    line-height: 36rpx;
+}
+.dialog_main .stone_pics {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+}
+.dialog_main .stone_pics_item {
+    width: 195rpx;
+    max-height: 144rpx;
+    overflow: hidden;
+    margin-bottom: 10rpx;
+}
+.dialog_main .stone_pics_item:nth-child(2n-1) {
+    margin-right: 10rpx;
+}
+.dialog_main .stone_pics_item image {
+    width: 100%;
+}
+.dialog_main .dialog_footer {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 30rpx;
+}
+.dialog_main .dialog_footer .dialog_cannel {
+    flex: 1;
+    text-align: center;
+    color: #fff;
+    background: #000;
+}
+.dialog_main .dialog_footer .dialog_sure {
+    flex: 1;
+    text-align: center;
+    color: #000;
+    background: #cdb288;
+}

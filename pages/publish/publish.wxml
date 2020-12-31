@@ -1,0 +1,22 @@
+<view class="containor">
+    <view class="supply">
+        <block wx:for="{{supply}}" wx:for-item="item" wx:key="index">
+        <view class="supply_item">
+            <view class="supply_time">{{item.ctime}}</view>
+            <view class="supply_title">{{item.remark}}</view>
+            <view class="supply_pics">
+                <view class="supply_pics_item" wx:for="{{item.pics}}" wx:for-item="itm" wx:key="idx">
+                    <image mode="widthFix" src="{{itm.file_path}}"></image>
+                </view>
+            </view>
+        </view>
+        </block>
+        <view class="loadingMore">
+            <text wx:if="{{noData}}">数据加载完毕</text>
+            <view class="loading" wx:if="{{!noData}}">
+                <text class="load"></text>
+                <text>数据加载中...</text>
+            </view>
+        </view>
+    </view>
+</view>

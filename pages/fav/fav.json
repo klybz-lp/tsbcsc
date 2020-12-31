@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+      "segment-bar": "/components/segment-bar/segment-bar",
+      "segment-panel": "/components/segment-panel/segment-panel"
+  },
+  "navigationBarTitleText": "我的收藏"
+}

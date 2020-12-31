@@ -1,0 +1,6 @@
+.about {
+    padding: 30rpx;
+}
+.about rich-text {
+    font-size: 12px !important;
+}

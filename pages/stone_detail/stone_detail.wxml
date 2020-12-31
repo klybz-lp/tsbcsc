@@ -1,0 +1,164 @@
+<view class="container">
+    <view class="stone_pics">
+        <swiper bindchange="swiperChange" circular>
+            <swiper-item wx:for="{{pics}}" wx:key="*this">
+                <image mode="widthFix" catchtap="previewImage" data-src="{{item}}" class="stone_thumb" src="{{item}}"/>
+            </swiper-item>
+        </swiper>
+        <image class="icon_fav" mode="widthFix" src="{{isFav ? 'https://stcdn.taoshibancang.com/static/wechat/icon_fav_select.png' : 'https://stcdn.taoshibancang.com/static/wechat/icon_fav.png'}}" catchtap="fav"></image>
+        <image class="icon_share" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/icon_share.png"></image>
+        <button open-type="share"></button>
+        <view class="imageCount">{{current+1}}/{{pics.length}}</view>
+    </view>
+    <view class="stone_info">
+        <view class="stone_basic">
+            <view class="stone_name">
+                <text>{{stone.name}}</text>
+                <!-- <text class="is_new">新品</text> -->
+            </view>
+            <!-- <view class="stone_spot" wx:if="{{showSpot}}" catchtap="spot">现货</view> -->
+            <!-- <text class="poster" catchtap="openDialog">生成海报</text> -->
+        </view>
+        <view class="stone_store">
+            <view class="store_info">
+                <image class="store_logo" src="{{stone.store.logo_path}}"></image>
+                <text class="store_name">{{stone.store.name}}</text>
+                <navigator url="/pages/store_detail/store_detail?id={{stone.store.id}}" class="icon_store">商家</navigator>
+            </view>
+            <view class="store_mobile">
+                <text>联系电话：{{stone.store.mobile}}</text>
+                <!-- <image mode="widthFix" src="/assets/image/store_mobile.png" bindtap="call"></image> -->
+                <text class="iconfont icon-dianhua" bindtap="call"></text>
+            </view>
+            <view class="store_address">
+                <text>店铺地址：{{stone.store.province_name}}{{stone.store.city_name}}{{stone.store.address}}</text>
+                <!-- <image mode="widthFix" src="/assets/image/store_address.png"></image> -->
+                <text class="iconfont icon-dizhi" ontap="navigation"></text>
+            </view>
+        </view>
+    </view>
+    <view class="stone_params">
+        <view class="line"></view>
+        <view class="params_title">产品参数</view>
+        <view class="params_wrap">
+            <view class="params_item">
+                <text class="params_key">名称 |  Name</text>
+                <text class="params_value">{{stone.fname}}</text>
+            </view>
+            <view class="params_item">
+                <text class="params_key">色系 |  Color System</text>
+                <text class="params_value">{{stone.color_name}}</text>
+            </view>
+            <view class="params_item">
+                <text class="params_key">表面 |  Surface</text>
+                <text class="params_value">{{stone.texture_name}}</text>
+            </view>
+            <view class="params_item">
+                <text class="params_key">规格 |  Size</text>
+                <text class="params_value">{{stone.size}}</text>
+            </view>
+            <view class="params_item">
+                <text class="params_key">价格 |  Price</text>
+                <text class="params_value">{{stone.price}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="line"></view>
+    <view class="stone_main">
+        <view class="stone_tab">
+            <text data-id="1" ontap="selectTab" class="{{currentTab==1 ? 'active' : ''}}">产品介绍</text>
+            <text data-id="2" ontap="selectTab" class="{{currentTab==2 ? 'active' : ''}}">工程案例</text>
+        </view>
+        <view class="stone_content">
+            <view class="stone_detail" hidden="{{currentTab!=1}}">
+                <block wx:for="{{pics}}" wx:key="index">
+                    <image mode="widthFix" src="{{item}}"/>
+                </block>
+            </view>
+            <view class="store_detail" hidden="{{currentTab!=2}}">
+                <rich-text nodes="{{info}}"></rich-text>
+            </view>
+        </view>
+    </view>
+    <view class="footer">
+        <view ontap="showCall" class="footer-item footer_service">
+            <image mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/icon_service.png"></image>
+            <text>客服管家</text>
+        </view>
+        <view ontap="apply"class="footer-item footer_apply">
+            <image mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/icon_apply.png"></image>
+            <text>索取样品</text>
+        </view>
+    </view>
+    <!-- 客服管家弹窗 -->
+    <view class="dialog dialog_service" hidden="{{!showCall}}">
+        <view class="dialog_main">
+            <view class="dialog_title">客服管家</view>
+            <view class="dialog_content">
+                <text>当前号码：{{stone.store.mobile}}</text>
+                <text>联系人：{{stone.store.contact}}</text>
+            </view>
+            <view class="dialog_footer">
+                <view class="dialog_cannel" ontap="cannel">取消</view>
+                <view class="dialog_sure" ontap="call">联系TA</view>
+            </view>
+        </view>
+    </view>
+    <!-- 申请样品弹窗 -->
+    <apply showApplyDialog="{{showApplyDialog}}" applyData="{{applyData}}"  bind:hideApply="hideApply" />
+    <!-- 分享弹窗开始 -->
+    <view class="weui-share-dialog {{showShareDialog ? 'weui-share-dialog_show' : ''}}">
+        <view class="weui-mask" bindtap="closeDialog"></view>
+        <view class="weui-half-screen-dialog">
+            <view class="weui-half-screen-dialog__ft">
+                <view class="weui-half-item">
+                    <view class="weui-half-pic">
+                        <!-- <image src="/assets/image/friend.png"/> -->
+                        <text class="iconfont icon-yonghu"></text>
+                    </view>
+                    <view>分享给朋友</view>
+                    <button open-type="share"></button>
+                </view>
+                <view class="weui-half-item" catchtap="createPoster">
+                    <view class="weui-half-pic">
+                        <!-- <image src="/assets/image/poster.png"/> -->
+                        <text class="iconfont icon-jiutuhaibao"></text>
+                    </view>
+                    <view>生成商品海报</view>
+                </view>
+            </view>
+        <view class="close" bindtap="closeDialog">关闭</view>
+        </view>
+    </view>
+    <!-- 分享弹窗结束 -->
+    <!-- 海报 -->
+    <view class="posterBox" catchtouchmove="true" hidden="{{maskHidden == false}}">
+        <view class="poster-wrap">
+            <view class="close-poster-box">
+                <text bindtap="closePosterBox" class="iconfont icon-icon2"></text>
+            </view>
+            <view class="img-box">
+                <image src="{{posterPath}}" mode="widthFix" />
+            </view>
+            <view class="save-poster">
+                <button catchtap="savePoster">保存图片</button>
+                <view>保存至相册</view>
+            </view>
+        </view>
+    </view> 
+    <!-- 海报 -->
+    <canvas id="poster" canvas-id="canvas"
+    class="canvas" style="width:{{posterWidth}};height:{{posterHeight}};position: fixed;top: -10000px;"></canvas>
+     <!-- 授权弹窗，打开系统授权界面 -->
+    <view class='open-seting-bg' wx:if='{{openSet}}' catchtap='cancleSet'>
+        <view class='open-set-inner'>
+            <view class='set-title'>是否打开授权设置？</view>
+            <view class='btn-openset'>
+            <view catchtap='cancleSet'>取消</view>
+                <view>
+                    <button open-type='openSetting' class='button-style' catchtap='cancleSet'>确定</button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,24 @@
+/* components/search.wxss */
+.search {
+    height: 80rpx;
+    padding: 10rpx;
+    background-color: var(--themeColor);
+}
+.search-content {
+    width: 710rpx;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: #666;
+}
+.search .iconfont {
+    font-size: 40rpx;
+}
+.search-text {
+    font-size: 30rpx;
+    padding-left: 10rpx;
+
+}

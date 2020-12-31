@@ -1,0 +1,47 @@
+<view class="container">
+    <view class="tab">
+        <view class="item {{type==2 ? 'active' : ''}}" catchtap="setType" data-type="2">求购</view>
+        <view class="item {{type==1 ? 'active' : ''}}" catchtap="setType" data-type="1">供应</view>
+    </view>
+    <view class="release">
+        <form bindsubmit="formSubmit">
+            <view class="form_item">
+                <view class="label">供需石材标题：</view>
+                <view class="notice">（为了保护您的信息安全，请勿出现邮箱电话等字段）</view>
+                <input name="name" placeholder="如：山水鱼肚白" value="{{inputValue}}" />
+            </view>
+            <view class="form_item">
+                <view class="label">供需石材描述：</view>
+                <view class="notice">（为了保护您的信息安全，请勿出现邮箱电话等字段）</view>
+                <textarea name="remark" placeholder="请输入描述内容" value="{{inputValue}}"></textarea>
+            </view>
+            <view class="form_item form_item_pic">
+                <view class="up-tool" bindtap="chooseImage">
+                    <!-- <button bindtap="chooseImage">+</button> -->
+                    <image mode="widthFix" src="/assets/image/up.png"></image>
+                    <text>点击上传图片</text>
+                </view>
+                <view class="upimg-items">
+                    <view class="upimg-item"  bindtap="removeImg" wx:for="{{uploadFile}}" wx:key="*this" data-index="{{index}}">
+                        <image class="thumb" mode="widthFix" src="{{item.file_path}}"></image>
+                        <icon type="clear" size="23" color="red"></icon>
+                    </view>
+                </view>
+            </view>
+            <view class="form_item form_item_user">
+                <view class="supply_user">供需者信息</view>
+                <view class="form_user_item">
+                    <view>您的名字：</view>
+                    <input name="user_name" placeholder="如：李先生" value="{{inputValue}}" />
+                </view>
+                <view class="form_user_item">
+                    <view>联系方式：</view>
+                    <input name="mobile" placeholder="如：13000000000" value="{{inputValue}}" />
+                </view>
+            </view>
+            <view class="release_form_item">
+                <button form-type="submit">立即发布</button>
+            </view>
+        </form>
+    </view>
+</view>

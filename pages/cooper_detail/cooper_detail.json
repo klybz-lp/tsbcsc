@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "资源详情",
+  "enablePullDownRefresh": false,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 10
+}

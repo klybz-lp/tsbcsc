@@ -1,0 +1,108 @@
+<view class="container">
+    <view class="store_pics">
+        <swiper bindchange="swiperChange" circular>
+            <swiper-item wx:for="{{store.images}}" wx:key="index">
+                <image mode="widthFix" catchtap="previewImage" data-src="{{item.file_path}}" class="store_thumb" src="{{item.file_path}}"/>
+            </swiper-item>
+        </swiper>
+        <image class="icon_fav" mode="widthFix" src="{{isFav ? 'https://stcdn.taoshibancang.com/static/wechat/icon_fav_select.png' : 'https://stcdn.taoshibancang.com/static/wechat/icon_fav.png'}}" catchtap="fav"></image>
+        <image class="icon_share" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/icon_share.png"></image>
+        <button open-type="share"></button>
+        <view class="imageCount">{{current+1}}/{{store.images.length}}</view>
+    </view>
+    <view class="store_info">
+        <view class="store_logo">
+            <image mode="widthFix" src="{{store.logo_path}}" />
+        </view>
+        <view class="store_name">{{store.name}}</view>
+        <view class="store_contact">联系人：{{store.contact}}</view>
+        <view class="store_mobile">
+                <text>联系电话：{{store.mobile}}</text>
+                <text class="iconfont icon-dianhua" bindtap="call"></text>
+            </view>
+            <view class="store_address">
+                <text>店铺地址：{{store.province_name}}{{store.city_name}}{{store.address}}</text>
+                <text class="iconfont icon-dizhi" catchtap="navigation"></text>
+            </view>
+    </view>
+    <view class="line"></view>
+    <view class="store_market">
+        <image mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/market.jpg?v=1"></image>
+    </view>
+    <view class="line"></view>
+    <view class="store_about">
+        <view class="tit">公司简介</view>
+        <view class="con">{{store.remark}}</view>
+    </view>
+    <view class="line"></view>
+    <view class="store_comment" wx:if="{{showComment}}">
+        <view class="tit">商家点评</view>
+        <view class="comment_form">
+            <form>
+                <icon class="icon-small" type="search" size="34rpx" wx:if="{{showIcon}}"></icon>
+                <input class="weui-input" placeholder="商家很nice" value="{{inputValue}}" bindfocus="inputFocus" bindblur="blurFocus" bindinput="inputSearch"/>
+                <text bindtap="createComment">发布评论</text>
+            </form>
+        </view> 
+        <view class="comment_list">
+            <block wx:for="{{comment}}" wx:key="index">
+            <view class="comment_item" wx:if="{{index <= commentLength}}">
+                <view class="comment_user">
+                    <view class="avatar">
+                        <image mode="widthFix" src="{{item.avatarUrl}}" />
+                    </view>
+                    <view class="info">
+                        <view class="name">{{item.nickName ? item.nickName : '匿名'}}</view>
+                        <view class="time">{{item.ctime}}</view>
+                    </view>
+                </view>
+                <view class="comment_content ellipsis">
+                    {{item.content}}
+                </view>
+            </view>
+            </block>
+            <view class="comment_more" ontap="loadMore" wx:if="{{comment.length > 1}}">
+                <text>查看更多</text>
+                <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
+            </view>
+        </view>
+    </view>
+    <view class="line"></view>
+    <view class="store_main">
+        <view class="store_tab">
+            <text data-id="1" ontap="selectTab" class="{{currentTab==1 ? 'active' : ''}}">产品展示</text>
+            <text data-id="2" ontap="selectTab" class="{{currentTab==2 ? 'active' : ''}}">工程案例</text>
+            <text data-id="3" ontap="selectTab" class="{{currentTab==3 ? 'active' : ''}}">公司实景</text>
+        </view>
+        <view class="store_content">
+            <view class="store_detail" hidden="{{currentTab!=1}}">
+                <view class="project_main">
+                    <navigator wx:for="{{stone}}" wx:key="index" url="/pages/stone_detail/stone_detail?id={{item.id}}">
+                    <view class="project_item">
+                        <view class="project_pic">
+                            <image mode="widthFix" src="{{item.stone_cover}}" />
+                            <view class="project_text ellipsis">{{item.name}}</view>
+                        </view>
+                    </view>
+                    </navigator>
+                    <view class="loadingMore">
+                        <text wx:if="{{noData}}">数据加载完毕</text>
+                        <view class="loading" wx:if="{{!noData}}">
+                            <text class="load"></text>
+                            <text>数据加载中...</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="store_detail" hidden="{{currentTab!=2}}">
+                <rich-text nodes="{{info}}"></rich-text>
+            </view>
+            <view class="store_detail" hidden="{{currentTab!=3}}">
+                <!-- 公司实景 -->
+                <block wx:for="{{store.images}}" wx:key="{{item.id}}">
+                    <image mode="widthFix" src="{{item.file_path}}"/>
+                </block>
+            </view>
+        </view>
+    </view>
+</view>

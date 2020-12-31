@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "search": "/components/search/search",
+        "apply": "/components/apply/apply"
+    },
+    "navigationBarTitleText": "石材分类",
+    "enablePullDownRefresh": false,
+    "backgroundTextStyle": "dark",
+    "onReachBottomDistance": 10
+}

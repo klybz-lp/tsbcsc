@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "商家详情",
+  "enablePullDownRefresh": false,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 10
+}

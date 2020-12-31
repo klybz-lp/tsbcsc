@@ -1,0 +1,145 @@
+.search {
+    margin: 40rpx 30rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding: 10rpx 0;
+    text-align: center;
+    font-size: 26rpx;
+    color: #b5b5b5;
+    background: #f1f1f1;
+    border-radius: 80rpx;
+    position: relative;
+}
+.search input {
+    height: 100%;
+    font-size: 26rpx;
+}
+.search text {
+    height: 58rpx;
+    width: 140rpx;
+    line-height: 58rpx;
+    border-radius: 58rpx;
+    text-align: center;
+    background: #cdb288;
+    font-size: 26rpx;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: 1px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+.search image, .search icon {
+    position: absolute;
+    top: 13rpx;
+    left: 220rpx;
+}
+.project {
+    margin: 0 30rpx;
+}
+.project-tab {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.project-tab .tab-item {
+    width: 150rpx;
+    height: 55rpx;
+    line-height: 55rpx;
+    border-radius: 10rpx;
+    font-size: 26rpx;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    background: #f1f1f1;
+}
+.project-tab .active {
+    background-color: #cdb288;
+    color: #000
+}
+.project_main {
+    margin: 40rpx 0rpx 60rpx;
+}
+.project_item {
+    width: 690rpx;
+    border: 1px solid #f1f1f1;
+    box-sizing: border-box;
+    margin-bottom: 30rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.project_item .project_h {
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+}
+.project_item .store_thumb {
+    width: 160rpx;
+    height: 160rpx;
+    overflow: hidden;
+    background: #f5f2f2;
+    margin-right: 20rpx;
+}
+.project_item .store_thumb image {
+    width: 100%;
+    max-height: 160rpx;
+    border: 1px dotted #f4a802;
+    box-sizing: border-box;
+}
+.project_item .store_info {
+    flex: 1;
+}
+.project_item .store_info .store_name {
+    font-size: 28rpx;
+    line-height: 28rpx;
+    font-weight: 550;
+    margin-bottom: 10rpx;
+}
+.project_item .store_info .store_bussiness {
+    font-size: 24rpx;
+    line-height: 30rpx;
+}
+.project_item .store_forward {
+    width: 44rpx;
+    margin-left: 20rpx;
+}
+.project_item .store_forward .iconfont {
+    font-size: 40rpx;
+    color: #cecece;
+}
+.project_item .project_b {
+    width: 690rpx;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: f1f1f1;
+    border-top: 1px solid #f1f1f1;
+}
+.project_item .project_b .store_pics {
+    flex: 1;
+    height: 86rpx;
+    overflow: hidden;
+    border-right: 1px solid #f1f1f1;
+    box-sizing: border-box;
+}
+.project_item .project_b .store_pics image {
+    width: 100%;
+}
+.project_item .project_b .store_contact {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #cdb288;
+    color: #000;
+    font-size: 26rpx;
+}
+.project_item .project_b .store_contact .iconfont {
+    font-size: 34rpx;
+    margin-right: 5rpx;
+    color: #000;
+}

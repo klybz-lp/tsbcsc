@@ -1,0 +1,14 @@
+<!--components/segment-bar/segment-bar.wxml-->
+<view class="segment-containor">
+    <view class="segment-bar">
+        <block wx:for="{{segmentBar}}" wx:key="id">
+        <view class="segment-bar-item {{currentIndex == item.id ? 'segment-bar-item-active' : ''}}" data-id="{{item.id}}" bindtap="selectItem">
+            <view class="segment-bar-item-title">{{item.title}}</view>
+            <view class="segment-bar-item-sub-title">{{item.subTitle}}</view>
+        </view>
+        </block>
+    </view>
+    <view class="segment-panel">
+        <slot></slot>
+    </view>
+</view>

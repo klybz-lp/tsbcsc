@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "apply": "/components/apply/apply"
+},
+  "navigationBarTitleText": "石材详情"
+}

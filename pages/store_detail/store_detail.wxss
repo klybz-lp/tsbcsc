@@ -1,0 +1,308 @@
+.store_pics {
+    width: 630rpx;
+    height: 360rpx;
+    margin: 40rpx auto;
+    position: relative;
+}
+.store_pics swiper {
+    width: 630rpx;
+    height: 360rpx;
+    background-color: #f5f2f2;
+    overflow: hidden;
+}
+.store_pics swiper-item {
+    position: relative;
+}
+.store_pics swiper .store_thumb {
+    width: 100%;
+}
+.store_pics .icon_fav {
+    width: 50rpx;
+    position: absolute;
+    top: 10rpx;
+    right: 80rpx;
+    z-index: 10;
+}
+.store_pics .icon_share {
+    width: 50rpx;
+    position: absolute;
+    top: 10rpx;
+    right: 20rpx;
+}
+.store_pics button {
+    width: 60rpx !important;
+    height: 60rpx;
+    position: absolute;
+    padding: 0 !important;
+    top: 10rpx;
+    right: 15rpx;
+    z-index: 11;
+    opacity: 0;
+}
+.imageCount {
+  width:90rpx;
+  height:40rpx;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius:40rpx;
+  line-height:40rpx;
+  color:#fff;
+  text-align:center;
+  font-size:26rpx;
+  position:absolute;
+  right:30rpx;
+  bottom:14rpx;
+}
+.store_info {
+    width: 630rpx;
+    margin: 0 auto 40rpx;
+}
+.store_info .store_logo {
+    width: 120rpx;
+    height: 120rpx;
+    background-color: #f5f2f2;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto 10rpx;
+}
+.store_info .store_logo image {
+    width: 100%;
+}
+.store_info .store_name {
+    font-size: 28rpx;
+    text-align: center;
+    color: #000;
+    font-weight: 550;
+}
+.store_contact {
+    margin: 40rpx 0 0rpx;
+    color: #000;
+    font-size: 26rpx;
+}
+.store_mobile {
+    margin-top: 6rpx;
+    color: #000;
+    font-size: 26rpx;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+}
+.store_address {
+    margin-top: 6rpx;
+    color: #000;
+    font-size: 26rpx;
+}
+.store_address .iconfont {
+    width: 90rpx;
+    display: inline-block;
+}
+.store_mobile .iconfont,.store_address .iconfont {
+    width: 90rpx;
+    font-size: 24rpx;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    border-radius: 30rpx;
+    margin-left: 10rpx;
+}
+.store_market {
+    width: 690rpx;
+    margin: 40rpx auto;
+}
+.store_market image {
+    width: 100%;
+}
+.store_about {
+    margin: 40rpx;
+    text-align: center;
+}
+.store_about .tit {
+    font-size: 28rpx;
+    font-weight: 550;
+    color: #000;
+    text-align: center;
+    margin: 0 0 20rpx 0;
+}
+.store_about .con {
+    font-size: 26rpx;
+}
+.store_comment {
+    width: 690rpx;
+    margin: 40rpx auto;
+}
+.store_comment .tit {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    background-color: #000;
+    color: #cdb288;
+    text-align: center;
+}
+.comment_form {
+    margin: 40rpx 0;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding: 10rpx 0;
+    text-align: center;
+    font-size: 26rpx;
+    color: #b5b5b5;
+    background: #f1f1f1;
+    border-radius: 80rpx;
+    position: relative;
+}
+.comment_form input {
+    height: 100%;
+    font-size: 26rpx;
+}
+.comment_form text {
+    height: 58rpx;
+    width: 160rpx;
+    line-height: 58rpx;
+    border-radius: 58rpx;
+    text-align: center;
+    background: #cdb288;
+    font-size: 26rpx;
+    font-weight: 500;
+    color: #000;
+    letter-spacing: 1px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+.comment_form image, .comment_form icon {
+    position: absolute;
+    top: 14rpx;
+    left: 230rpx;
+}
+.comment_list {
+    margin: 10rpx 0;
+}
+.comment_item {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    margin-bottom: 30rpx;
+}
+.comment_item .comment_user {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    margin-right: 30rpx;
+}
+.comment_item .avatar {
+    width: 90rpx;
+    height: 90rpx;
+    overflow: hidden;
+    background-color: #f5f2f2;
+    border-radius: 50%;
+    margin-right: 10rpx;
+}
+.comment_item .avatar image {
+    width: 100%;
+}
+.comment_item .name {
+    font-size: 26rpx;
+    font-weight: 500;
+    color: #282828;
+    line-height: 32rpx;
+    margin-bottom: 5rpx;
+}
+.comment_item .time {
+    font-size: 24rpx;
+    color: #878686;
+    line-height: 30rpx;
+}
+.comment_item .comment_content {
+    flex: 1;
+    font-size: 26rpx;
+    color: #282828;
+    text-align: center;
+}
+.comment_more {
+    font-size: 28rpx;
+    color: #878686;
+    text-align: right;
+}
+.store_main {
+    margin: 40rpx
+}
+.store_tab {
+    height: 60rpx;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.store_tab text {
+    width: 49%;
+    height: 100%;
+    line-height: 60rpx;
+    text-align: center;
+    background-color: #000;
+    color: #cdb288;
+    font-size: 26rpx;
+}
+.store_tab text.active {
+    background-color: #cdb288;
+    color: #000;
+}
+.store_content {
+    margin: 60rpx 0 0 0;
+}
+.store_detail p {
+    font-size: 26rpx;
+    color: #000;
+    line-height: 30rpx;
+    margin-bottom: 20rpx;
+}
+.store_detail img {
+    max-width: 100%;
+    margin-bottom: 20rpx;
+}
+.store_detail image {
+    max-width: 100%;
+    display: block;
+    margin: 20rpx auto;
+}
+.store_content rich-text {
+    font-size: 26rpx;
+    color: #282828;
+}
+.store_detail rich-text image {
+    width: 300rpx !important;
+}
+.project_main {
+    margin: 40rpx 0rpx 10rpx;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.project_main .project_item {
+    border: 2px solid #dedede;
+    width: 330rpx;
+    box-sizing: border-box;
+    margin-bottom: 30rpx;
+}
+.project_main .project_item .project_pic {
+    width: 280rpx;
+    height: 160rpx;
+    overflow: hidden;
+    background: #f5f2f2;
+    margin: 20rpx auto 0;
+    position: relative;
+}
+.project_main .project_item .project_pic image {
+    width: 100%;
+    margin-top: 0;
+}
+.project_main .project_item .project_text {
+    width: 90%;
+    padding: 10rpx 20rpx;
+    background: rgba(255, 255, 255, .5);
+    font-size: 24rpx;
+    color: #000;
+    position: absolute;
+    left: 5%;
+    bottom: 0;
+}

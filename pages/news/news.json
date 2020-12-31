@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+    "navigationBarTitleText": "最新资讯",
+    "enablePullDownRefresh": false,
+    "backgroundTextStyle": "dark",
+    "onReachBottomDistance": 10
+}

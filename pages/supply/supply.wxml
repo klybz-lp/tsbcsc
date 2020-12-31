@@ -1,0 +1,69 @@
+<view class="container">
+    <view class="tab">
+        <view class="item {{type==0 ? 'active' : ''}}" catchtap="setType" data-type="0">默认</view>
+        <view class="item {{type==2 ? 'active' : ''}}" catchtap="setType" data-type="2">求购</view>
+        <view class="item {{type==1 ? 'active' : ''}}" catchtap="setType" data-type="1">供应</view>
+    </view>
+    <view class="supply">
+        <block wx:for="{{supply}}" wx:for-item="item" wx:key="index">
+        <view class="supply_item">
+            <view class="supply_time">{{item.ctime}}</view>
+            <view class="supply_title">{{item.remark}}</view>
+            <view class="supply_pics">
+                <view class="supply_pics_item" wx:for="{{item.pics}}" data-pics="{{item.images}}" wx:for-item="itm" wx:key="idx">
+                    <image mode="widthFix" catchtap="previewImage" data-src="{{item.file_path}}" data-pics="{{item.images}}" src="{{itm.file_path}}"></image>
+                </view>
+            </view>
+            <view class="supply_contact">
+                <view class="name">发布人：{{item.user_name}}</view>
+                <view class="mobile">联系电话：{{item.mobile}}</view>
+                <view class="view" data-item="{{item}}" ontap="view">查看详情</view>
+            </view>
+        </view>
+        </block>
+        <view class="loadingMore">
+            <text wx:if="{{noData}}">数据加载完毕</text>
+            <view class="loading" wx:if="{{!noData}}">
+                <text class="load"></text>
+                <text>数据加载中...</text>
+            </view>
+        </view>
+    </view>
+    <view class="supply_dialog" wx:if="{{showDetail}}">
+        <view class="dialog_main">
+            <view class="dialog_content">
+                <view class="dialog_title">{{detail.type==1 ? '供应' : '求购'}}详情</view>
+                <view class="dialog_item stone_name">
+                    <view class="label">石材名称：</view>
+                    <view class="value">{{detail.name}}</view>
+                </view>
+                <view class="dialog_item stone_remark">
+                    <view class="label">石材描述：</view>
+                    <view class="value">{{detail.remark}}</view>
+                </view>
+                <view class="dialog_item stone_pic">
+                    <view class="label">石材图片：</view>
+                    <view class="value stone_pics">
+                        <view class="stone_pics_item" wx:for="{{detail.images}}" wx:for-item="itm" wx:key="idx">
+                            <image mode="widthFix" catchtap="previewImage" data-src="{{itm.file_path}}" data-pics="{{detail.images}}" src="{{itm.file_path}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <block wx:if="{{showContact}}">
+                    <view class="dialog_item stone_contact">
+                        <view class="label">发布人：</view>
+                        <view class="value">{{detail.user_name}}</view>
+                    </view>
+                    <view class="dialog_item stone_mobile">
+                        <view class="label">联系电话：</view>
+                        <view class="value">{{detail.mobile}}</view>
+                    </view>
+                </block>
+            </view>
+            <view class="dialog_footer">
+                <view class="dialog_cannel" ontap="cannel">取消</view>
+                <view class="dialog_sure" data-mobile="{{detail.mobile}}" ontap="call">联系TA</view>
+            </view>
+        </view>
+    </view>
+</view>

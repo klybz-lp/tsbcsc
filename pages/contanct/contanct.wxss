@@ -1,0 +1,6 @@
+.about {
+    padding: 30rpx;
+}
+.main p {
+    font-size: 100rpx;
+}

@@ -1,0 +1,31 @@
+/* components/segment-bar/segment-bar.wxss */
+.segment-bar {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    overflow-x: scroll;
+}
+
+.segment-bar .segment-bar-item {
+    flex: 1;
+    padding: 15rpx 0;
+    text-align: center;
+    color: #666;
+}
+
+.segment-bar .segment-bar-item .segment-bar-item-title {
+    font-size: 30rpx;
+    line-height: 50rpx;
+}
+
+.segment-bar .segment-bar-item .segment-bar-item-sub-title {
+    font-size: 25rpx;
+    line-height: 25rpx;
+}
+
+.segment-bar .segment-bar-item-active {
+    color: #cdb288;
+    border-bottom: 1px solid #cdb288;
+}

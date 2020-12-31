@@ -1,0 +1,31 @@
+<view class="container">
+    <view class="news">
+        <block wx:for="{{news}}" wx:for-item="item" wx:key="index">
+        <view class="news_item">
+            <view class="news_con">
+                <navigator class="news_pic" url="/pages/news_detail/news_detail?id={{item.id}}">
+                    <image mode="widthFix" src="{{item.file_path}}"></image>
+                </navigator>
+                <view class="news_detail">
+                    <view class="news_title ellipsis">{{item.title}}</view>
+                    <view class="news_remark">{{item.descriptions}}</view>
+                    <view class="news_icon">
+                        <view class="news_time">{{item.ctime}}</view>
+                        <navigator url="/pages/news_detail/news_detail?id={{item.id}}">
+                            <text>查看</text>
+                            <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </view>
+        </block>
+        <view class="loadingMore">
+            <text wx:if="{{noData}}">数据加载完毕</text>
+            <view class="loading" wx:if="{{!noData}}">
+                <text class="load"></text>
+                <text>数据加载中...</text>
+            </view>
+        </view>
+    </view>
+</view>

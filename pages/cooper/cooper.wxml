@@ -1,0 +1,36 @@
+<view class="container">
+    <view class="search">
+        <form>
+            <icon class="icon-small" type="search" size="34rpx" hidden="{{!showIcon}}"></icon>
+            <input class="weui-input" placeholder="如：设计师张三" bindfocus="inputFocus" bindblur="blurFocus" bindinput="inputSearch"/>
+            <text bindtap="searchCooper">搜索</text>
+        </form>
+    </view> 
+    <view class="project">
+        <view class="project-tab">
+            <block wx:for="{{cooperCategory}}" wx:key="index">
+            <view class="tab-item {{category_id==item.id ? 'active' : ''}}" data-id="{{item.id}}"  bindtap="selectTab">{{item.name}}</view>
+            </block>
+        </view>
+        <view class="project_main">
+            <block wx:for="{{cooper}}" wx:for-item="item" wx:key="index">
+            <navigator class="project_item" url="/pages/cooper_detail/cooper_detail?id={{item.id}}">
+                <view class="cooper_logo">
+                    <image mode="widthFix" src="{{item.logo_path}}"></image>
+                </view>
+                <view class="cooper_name">{{item.name}}</view>
+                <view class="cooper_mobile" data-mobile="{{item.mobile}}" catchtap="call">联系他</view>
+                <view class="cooper_about">{{item.about}}</view>
+                <view class="cooper_remark ellipsis">{{item.remark}}</view>
+            </navigator>
+            </block>
+            <view class="loadingMore">
+                <text wx:if="{{noData}}">数据加载完毕</text>
+                <view class="loading" wx:if="{{!noData}}">
+                    <text class="load"></text>
+                    <text>数据加载中...</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

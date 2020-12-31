@@ -1,0 +1,66 @@
+<view class="containor">
+    <view class="user-info-wrap">
+        <view class="user-img-wrap" wx:if="{{isLogin}}">
+            <view class="user-info">
+                <view class="user-icon">
+                    <image src="{{userInfo.avatarUrl}}" />
+                </view>
+                <view class="user-name">
+                    <text>{{userInfo.nickName}}</text>
+                    <text class="level">{{level}}</text>
+                </view>
+            </view>
+        </view>
+        <view wx:else class="user-info-btn" catchtap="onLogin">登录</view>
+    </view>
+    <view class="user-content">
+        <view class="user-main">
+            <view class="about-wrap">
+                <navigator class="about-wrap-item" url="/pages/fav/fav">
+                    <text class="iconfont icon-shoucang"></text>
+                    <view>我的收藏</view>
+                </navigator>
+                <navigator class="about-wrap-item" url="/pages/publish/publish">
+                    <text class="iconfont icon-fabu"></text>
+                    <view>我的发布</view>
+                </navigator>
+                <view class="about-wrap-item">
+                    <text class="iconfont icon-lianjie"></text>
+                    <view>绑定手机号</view>
+                    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 获取手机号码</button>
+                </view>
+                <!-- 系统自带的意见反馈页面 -->
+                <navigator class="about-wrap-item">
+                    <text class="iconfont icon-zhanghaoshensu"></text>
+                    <view>意见反馈</view>
+                    <button open-type="feedback">意见反馈</button>
+                </navigator>
+                <view class="about-wrap-item">
+                    <text class="iconfont icon-htmal5icon31"></text>
+                    <view>在线客服</view>
+                    <button open-type="contact"></button>
+                </view>
+                <view class="about-wrap-item" bindtap="call">
+                    <text class="iconfont icon-lianxi"></text>
+                    <view>联系我们</view>
+                </view>
+                <navigator class="about-wrap-item" url="/pages/company/company">
+                    <text class="iconfont icon-guanyu"></text>
+                    <view>关于我们</view>
+                </navigator>
+                <navigator url="/pages/register/register" class="about-wrap-item" wx:if="{{!isstore}}">
+                    <text class="iconfont icon-leimupinleifenleileibie2"></text>
+                    <view>申请入驻</view>
+                </navigator>
+                <navigator url="/pages/register/backend" class="about-wrap-item" wx:else>
+                    <text class="iconfont icon-leimupinleifenleileibie2"></text>
+                    <view>商家后台</view>
+                </navigator>
+                <view class="about-wrap-item"  bindtap="clear">
+                    <text class="iconfont icon-weibiaoti-"></text>
+                    <view>退出登录</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

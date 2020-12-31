@@ -1,0 +1,67 @@
+.container {
+    padding: 1rem .8rem;
+}
+.form_item {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    font-size: 28rpx;
+    padding: 0 10rpx;
+    border-bottom: 1px solid #c1c1c1;
+    margin-bottom: 30rpx;
+}
+.form_item .label {
+    width: 160rpx;
+}
+.form_item .label .dot {
+    color: #f00;
+    padding: 0 8rpx 0 0;
+}
+.form_item .value {
+    flex: 1;
+    padding: 10rpx 0;
+}
+.form_submit {
+    margin: 50rpx 0;
+    text-align: center;
+}
+.form_submit button {
+    width: 100% !important;
+    background-color: #cdb288;
+    font-weight: normal !important;
+    border-radius: 70rpx;
+    font-size: 16px !important;
+    padding: 0 !important;
+    height: 70rpx;
+    line-height: 70rpx;
+}
+.form_submit text {
+    font-size: 13px;
+    color: #777;
+    padding-top: 6rpx;
+}
+.form_item .gray {
+    color: #c1c1c1;
+}
+
+.notice_f1 {
+    font-size: 28rpx;
+    color: #333;
+}
+.notice_f2 {
+    font-size: 26rpx;
+    color: #999;
+    line-height: 34rpx;
+    margin: 10rpx 0 30rpx;
+}
+.notice_f6 {
+    width: 300rpx;
+    height: 60rpx;
+    margin-top: 30rpx;
+    line-height: 60rpx;
+    background-color: green;
+    color: #fff;
+    text-align: center;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+}

@@ -1,0 +1,19 @@
+<view class="container">
+    <view class="item name">
+        <view class="key">案例名称：</view>
+        <view class="value">{{detail.name}}</view>
+    </view>
+    <view class="item cooper">
+        <view class="key">设计师：</view>
+        <view class="value">{{detail.cooper_name}}</view>
+    </view>
+    <view class="remark">
+        <view class="key">案例描述：</view>
+        <view class="value">{{detail.remark}}</view>
+    </view>
+    <view class="pics">
+        <view class="pic" wx:for="{{detail.images}}" wx:key="id">
+            <image mode="widthFix" src="{{item.file_path}}"></image>
+        </view>
+    </view>
+</view>
