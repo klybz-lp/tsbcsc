@@ -623,3 +623,31 @@
   button::after {
     border: 0;
   }
+.tab-box {
+    /* position: fixed;
+    left: 0;
+    top: 0; */
+    z-index: 9999;
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    overflow: hidden;
+    background-color: #efefef;
+    white-space: nowrap;
+}
+
+.tab-item {
+    width: 20%;
+    text-align: center;
+    display: inline-block;
+    color: #333;
+}
+
+.tab-item.active {
+    color: #41A6FE;
+}
+
+.tab-content {
+    /* margin-top: 80rpx; */
+    /* height: 100vh; */
+}

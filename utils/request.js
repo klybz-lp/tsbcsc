@@ -102,6 +102,7 @@ module.exports = {
                                     mask: true,
                                     icon: 'none'
                                 })
+                                reject(res)
                             } else {
                                 if (loading) {
                                     wx.hideLoading();

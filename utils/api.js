@@ -1,8 +1,8 @@
 //服务器主域名
 const domain = "https://www.taoshibancang.com";
 // 搜石接口域名
-const soushiDomain = "https://slab-api-test.soushi88.com";
-// const soushiDomain = "https://slab.backend.soushi88.com";
+// const soushiDomain = "https://slab-api-test.soushi88.com"; // 搜石测试环境
+const soushiDomain = "https://slab.backend.soushi88.com"; // 搜石正式环境
 //数据请求地址
 const api = {
     goodsQuery: soushiDomain + '/open/goods/query', // 搜石_商品_查询
