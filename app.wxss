@@ -1,5 +1,5 @@
 /**app.wxss**/
-/* 引入图标库样式文件 */
+/* 引入图标库样式文件-- */
 @import "./assets/style/iconfont.wxss";  
 /* 引入weui.xss */
 @import './assets/style/weui.wxss';
