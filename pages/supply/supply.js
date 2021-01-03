@@ -14,6 +14,7 @@ Page({
         pics: [],
         page_size: 10,
         type: 0,
+        isStore: false, //是否是入驻商家
         noData: false
     },
 
@@ -24,15 +25,7 @@ Page({
         let id = options.id;
         if(id){
             App.get(App.api.supplyDetail, {id: id}).then(result => {
-                if(result.type == 2){
-                    this.viewDetail(result);
-                } else {
-                    this.setData({
-                        detail: result,
-                        showDetail: true,
-                        showContact: true
-                    });
-                }
+                this.viewDetail(result);
             }).catch(err => {
                 console.log(err);
             })
@@ -46,18 +39,19 @@ Page({
     onShow: function () {
         //判断是否为商家
         App.checkIsStore(res => {
-            if(res == 2){
-                this.getList(true);
-            } else {
+            let isStore = (res==2) ? true : false;
+            this.setData({
+                isStore
+            },() => {
                 this.getList();
-            }
+            })
         });
     },
 
     /**
      * 供求列表
      */
-    getList: function (flag) {
+    getList: function () {
         wx.showNavigationBarLoading();
         if (this.data.page >= this.data.last_page) {
             wx.hideNavigationBarLoading();
@@ -78,7 +72,7 @@ Page({
                 result.data.forEach(item => {
                     item.pics = item.images.slice(0,3);
                 });
-                if(!flag){ //入驻商家
+                if(!this.data.isStore){ //入驻商家
                     result.data.forEach(item => {
                         item.user_name = item.user_name.replace(/(.{1})(.{1,})/g, "$1**");
                         item.mobile = item.mobile.replace(/(.{3})(.{1,})/g, "$1********");
@@ -132,15 +126,7 @@ Page({
         //     return false;
         // }
         
-        if(item.type == 2){
-            this.viewDetail(item);
-        } else {
-            this.setData({
-                detail: item,
-                showDetail: true,
-                showContact: true
-            });
-        }
+        this.viewDetail(item);
     },
 
     /**
@@ -176,13 +162,16 @@ Page({
         App.checkIsStore(res => {
             if(res == 2){
                 this.setData({
-                    showContact: true
+                    showContact: true,
+                    detail: item,
+                    showDetail: true
+                });
+            } else {
+                this.setData({
+                    detail: item,
+                    showDetail: true
                 });
             }
-        });
-        this.setData({
-            detail: item,
-            showDetail: true
         });
 
     },
