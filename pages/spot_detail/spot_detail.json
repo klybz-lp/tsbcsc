@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-tabs": "/plugins/vant/tabs/index",
+    "van-tab": "/plugins/vant/tab/index",
+    "van-divider": "/plugins/vant/divider/index",
+    "van-row": "/plugins/vant/row/index",
+    "van-col": "/plugins/vant/col/index"
+},
+  "navigationBarTitleText": "石材详情"
+}

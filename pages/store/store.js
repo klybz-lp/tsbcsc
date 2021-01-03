@@ -27,21 +27,21 @@ Page({
         this.getStore();
         this.getList();
 
-        let params = {
-            data: {
-                token: 'uf3kQLmgBKG40YH2OreqjxRXwlIJnsME',
-                keyword: ''
-            },
-            page: {
-                pageCurrent: 1,
-                pageSize: 10
-            }
-        }
-        App.post(App.api.stStoneList, params, { loading: false }).then(result => {
-            console.log(result)
-        }).catch(err => {
-            console.log(err);
-        })
+        // let params = {
+        //     data: {
+        //         token: 'uf3kQLmgBKG40YH2OreqjxRXwlIJnsME',
+        //         keyword: ''
+        //     },
+        //     page: {
+        //         pageCurrent: 1,
+        //         pageSize: 10
+        //     }
+        // }
+        // App.post(App.api.stStoneList, params, { loading: false }).then(result => {
+        //     console.log(result)
+        // }).catch(err => {
+        //     console.log(err);
+        // })
     },
 
     /**

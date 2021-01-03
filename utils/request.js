@@ -53,6 +53,7 @@ module.exports = {
                 method,
                 header: {
                     'clientInfo': JSON.stringify(clientInfo),
+                    'ss-origin': 'W-7', // 搜石网接口标识
                     'token': option.token
                 },
                 success: function (result) {
@@ -77,12 +78,45 @@ module.exports = {
                         return false;
                     }
                     let res = result.data;
-                    if (res.code > 0) {
+                    let code = '';
+                    let isSourceSoushi = false; // 是否来自于搜石的接口
+                    if (res.code != undefined) {
+                        code = res.code;
+                        isSourceSoushi = false;
+                    } else {
+                        code = res.status.code;
+                        isSourceSoushi = true;
+                    }
+                    // 来自于搜石的接口，执行这里回调
+                    if (isSourceSoushi) {
+                        if (code === 0) {
+                            if (loading) {
+                                wx.hideLoading();
+                            }
+                            resolve(res.data);
+                        } else {
+                            if (toast) {
+                                wx.showToast({
+                                    // title: res.message || '网络请求失败',
+                                    title: res.status.message || '网络请求失败',
+                                    mask: true,
+                                    icon: 'none'
+                                })
+                                reject(res)
+                            } else {
+                                if (loading) {
+                                    wx.hideLoading();
+                                }
+                            }
+                        }
+                        return
+                    }
+                    if (code > 0) {
                         if (loading) {
                             wx.hideLoading();
                         }
                         resolve(res.result);
-                    } else if (res.code == -1){
+                    } else if (code == -1){
                         if (loading) {
                             wx.hideLoading();
                         }

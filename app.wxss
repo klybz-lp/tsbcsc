@@ -15,6 +15,107 @@ page {
     background-color: #fff;
     color: #666;
 }
+/*  注意（这里的边距按px尺寸算，故需除以2）*/
+/* 上边距*/
+.mt5 {
+    margin-top: 10rpx;
+}
+
+.mt10 {
+    margin-top: 20rpx;
+}
+
+.mt12 {
+    margin-top: 24rpx;
+}
+
+.mt15 {
+    margin-top: 30rpx;
+}
+
+.mt20 {
+    margin-top: 40rpx;
+}
+
+/* 下边距*/
+.mb5 {
+    margin-bottom: 10rpx;
+}
+
+.mb10 {
+    margin-bottom: 20rpx;
+}
+
+.mb12 {
+    margin-bottom: 24rpx;
+}
+
+.mb15 {
+    margin-bottom: 30rpx;
+}
+
+/* 左边距*/
+.ml5 {
+    margin-left: 10rpx;
+}
+
+.ml10 {
+    margin-left: 20rpx;
+}
+
+.ml12 {
+    margin-left: 24rpx;
+}
+
+.ml15 {
+    margin-left: 30rpx;
+}
+
+/* 右边距*/
+.mr5 {
+    margin-right: 10rpx;
+}
+
+.mr8 {
+    margin-right: 16rpx;
+}
+
+.mr10 {
+    margin-right: 20rpx;
+}
+
+.mr12 {
+    margin-right: 24rpx;
+}
+
+.mr15 {
+    margin-right: 30rpx;
+}
+
+.mr16 {
+    margin-right: 32rpx;
+}
+
+.pr15 {
+    padding-right: 30rpx;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-vtm {
+    align-items: center;
+}
+
+.flex-tc {
+    justify-content: center;
+}
+
 .line {
     height: 10rpx;
     background-color: #f1f0f5;

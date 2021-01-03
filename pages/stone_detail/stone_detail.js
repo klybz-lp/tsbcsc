@@ -81,6 +81,13 @@ Page({
 
     },
 
+    // 跳转现货
+    goSpotDetail: function () {
+        wx.navigateTo({
+            url: `/pages/spot_detail/spot_detail?id=${this.data.stone.store_id}&variety=${this.data.stone.name}`
+        })
+    },
+
     getDetail: function (id){
         App.get(App.api.stoneDetail, {id: id}).then(result => {
             //img标签添加样式

@@ -3,6 +3,7 @@
         "pages/index/index",
         "pages/stone/stone",
         "pages/stone_detail/stone_detail",
+        "pages/spot_detail/spot_detail",
         "pages/release/release",
         "pages/about/about",
         "pages/search/search",

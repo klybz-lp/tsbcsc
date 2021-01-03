@@ -1,0 +1,124 @@
+<view class="container">
+    <view class="stone_pics">
+        <swiper bindchange="swiperChange" current="{{current}}" circular>
+            <swiper-item wx:for="{{imageInfoList}}" wx:key="imageUrl">
+                <image wx:if="{{item.imageType == 1}}" mode="aspectFill" catchtap="previewImage" data-src="{{item.imageUrl}}" class="stone_thumb" src="{{item.imageUrl + '?x-oss-process=style/high'}}"/>
+                <video id="myVideo{{index}}"
+                custom-cache="{{false}}"
+                enable-progress-gesture="{{false}}"
+                class="stone_thumb"
+                wx:if="{{item.imageType == 5}}"
+                src="{{item.imageUrl}}" controls></video>
+            </swiper-item>
+        </swiper>
+        <view class="imageCount">{{current+1}}/{{detail.imageInfoList.length}}</view>
+    </view>
+    <view class="info-desc">
+        <!-- 规格 -->
+        <view class="infoBox">
+            <text class="dib grey-c mr20">编号</text>
+            <view class="dib picker-box">
+                <picker mode="selector" range-key="blockNo" bindchange="bindPickerChange" value="{{index}}" range="{{queryList}}">
+                    <view class="picker dib iconfont icon-arrow-right-copy-copy-copy">{{queryList[index].blockNo}}</view>
+                </picker>
+            </view>
+        </view>
+        <!-- 规格 -->
+        <view class="infoBox">
+            <text class="dib grey-c mr20">规格</text>
+            <text class="dib darkgrey-c">{{ detail.size.length }} * {{ detail.size.width }} * {{ detail.size.thickness }} mm</text>
+        </view>
+        <!-- 数量 -->
+        <view class="infoBox">
+            <text class="dib grey-c mr20">数量</text>
+            <text class="dib darkgrey-c">{{ detail.quantity.packetNum }} 扎 / {{ detail.quantity.sliceNum }} 件 / {{ detail.quantity.area }} m²</text>
+        </view>
+    </view>
+    <view class="detail-tab flex">
+        <view class="flex-1 tab-item {{active == 0 ? 'active' : ''}}" wx:if="{{ blockHDImgs.length > 0 }}" data-num="0" bindtap="detailTabChange">现货高清图</view>
+        <view class="flex-1 tab-item {{active == 1 ? 'active' : ''}}" data-num="1" bindtap="detailTabChange">现货码单</view>
+    </view>
+    <view hidden="{{active == 1}}">
+    <view class="code-tab">
+        <scroll-view show-scrollbar="{{false}}" scroll-x="true" class="tab-box" scroll-left="{{ leftHD }}">
+            <block wx:for="{{ blockHDImgs }}" wx:for-item="item" wx:for-index="index" wx:key="*this">
+                <view class="tab-item {{ currentTabHD==index?'active':'' }}" data-current="{{ index }}" bindtap="swichNavHD">
+                    {{ '扎' + item.packetNo }}</view>
+            </block>
+        </scroll-view>
+        <swiper class="tab-content" current="{{ currentTabHD }}" duration="0" bindchange="switchTabHD" style="height:{{HDHeight}}">
+            <swiper-item wx:for="{{ blockHDImgs }}" wx:for-item="item" wx:for-index="index" wx:key="*this">
+                <!-- <scroll-view scroll-y="true" style="height:100%;"> -->
+                    <view class="packet-wrapper">
+                        <view class="packetTotal">第{{ item.packetNo }}扎 共{{ item.packetSliceNum }}件/{{ item.packetTotalArea }}m²
+                        </view>
+                        <view class="sliceItem" wx:for="{{item.slicesExistHDImgInfo}}" wx:for-index="idx" wx:for-item="slice"
+                            wx:key="sliceNo">
+                            <view class="sliceSpec flex">
+                                <view class="sliceSpceItem">件号{{slice.sliceNo}}</view>
+                                <view class="sliceSpceItem flex-1">
+                                    {{slice.sliceLength}}*{{slice.sliceWidth}}*{{slice.sliceThickness}}(mm)
+                                </view>
+                                <view class="sliceSpceItem">{{slice.sliceArea}}m²</view>
+                            </view>
+                            <view class="sliceImgBox">
+                                <image bindtap="previewFull" data-src="{{slice.sliceImg}}"
+                                    src="{{slice.sliceImg + '?x-oss-process=style/high'}}" class="sliceImg" mode="aspectFill">
+                                </image>
+                            </view>
+                        </view>
+                        <view class="mr10 ml10">
+                            <van-divider content-position="center" :style="{ margin: '0 16px'; padding: 0 20rpx; }">END
+                            </van-divider>
+                        </view>
+                    </view>
+                <!-- </scroll-view> -->
+            </swiper-item>
+        </swiper>
+    </view>
+    </view>
+    <view hidden="{{active == 0}}">
+    <view class="code-tab">
+        <scroll-view show-scrollbar="{{false}}" scroll-x="true" class="tab-box" scroll-left="{{ left }}">
+            <block wx:for="{{ codeInfo }}" wx:for-item="item" wx:for-index="index" wx:key="*this">
+                <view class="tab-item {{ currentTab==index?'active':'' }}" data-current="{{ index }}" bindtap="swichNav">{{ '扎' + item.packetNo }}</view>
+            </block>
+        </scroll-view>
+        <swiper class="tab-content" current="{{ currentTab }}" duration="0" bindchange="switchTab" style="height:{{codeHeight}}">
+            <swiper-item wx:for="{{ codeInfo }}" wx:for-item="item" wx:for-index="index" wx:key="*this">
+                <!-- <scroll-view scroll-y="true" style="height:100%;"> -->
+                    <view class="code-wrapper">
+                        <view class="packetTotal">第{{ item.packetNo }}扎 共{{ item.packetSliceNum }}件/{{ item.packetTotalArea }}m²
+                        </view>
+                        <!-- 居中 -->
+                        <view class="code-item">
+                            <van-row type="flex" justify="center">
+                                <van-col span="4">件号</van-col>
+                                <van-col span="4">长mm</van-col>
+                                <van-col span="4">宽mm</van-col>
+                                <van-col span="4">厚mm</van-col>
+                                <van-col span="4">扣角m²</van-col>
+                                <van-col span="4">面积m²</van-col>
+                            </van-row>
+                        </view>
+                        <view class="code-item" wx:for="{{item.slicesInfo}}" wx:for-index="idx" wx:for-item="slice" wx:key="sliceNo">
+                            <van-row type="flex" justify="center">
+                                <van-col span="4">{{ slice.sliceNo }}</van-col>
+                                <van-col span="4">{{ slice.sliceLength }}</van-col>
+                                <van-col span="4">{{ slice.sliceWidth }}</van-col>
+                                <van-col span="4">{{ slice.sliceThickness }}</van-col>
+                                <van-col span="4">{{ slice.totalLostAngleArea }}</van-col>
+                                <van-col span="4">{{ slice.sliceArea }}</van-col>
+                            </van-row>
+                        </view>
+                        <view class="mr10 ml10">
+                            <van-divider content-position="center" :style="{ margin: '0 16px'; padding: 0 20rpx; }">END
+                            </van-divider>
+                        </view>
+                    </view>
+                <!-- </scroll-view> -->
+            </swiper-item>
+        </swiper>
+    </view>
+    </view>
+</view>
