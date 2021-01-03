@@ -236,7 +236,7 @@ Page({
         //用户登录
         App.call(mobile,function(){
             if(_this.data.showCall){
-                _this.setData({ showCall: false });
+                _this.setData({ showCall: false })
             }
         });
     },
