@@ -35,12 +35,6 @@ App({
                 })
             }
         });
-        //用户登录
-        if (!this.checkIsLogin()) {
-            wx.navigateTo({
-                url: '/pages/login/login',
-            });
-        }
         //获取小程序配置信息
         this.get(this.api.site).then(res => {
             this.globalData.siteInfo = res;
@@ -59,7 +53,7 @@ App({
      * 记录访问的页面
      */
     onShow() {
-        
+    
     },
 
     /**

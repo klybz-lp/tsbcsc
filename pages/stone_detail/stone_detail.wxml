@@ -150,6 +150,8 @@
             </view>
         </view>
     </view> 
+    <!-- 扫码测试 -->
+    <!-- <button catchtap="scanCode">扫码测试</button> -->
     <!-- 海报 -->
     <canvas id="poster" canvas-id="canvas"
     class="canvas" style="width:{{posterWidth}};height:{{posterHeight}};position: fixed;top: -10000px;"></canvas>

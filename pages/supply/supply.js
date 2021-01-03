@@ -205,7 +205,13 @@ Page({
      */
     call: function (e) {
         let mobile = e.currentTarget.dataset.mobile;
-        App.call(mobile);
+        App.checkIsStore(res => {
+            if(res == 2){
+                App.call(mobile);
+            } else {
+                App.showError("您没有权限")
+            }
+        });
     },
 
     /**

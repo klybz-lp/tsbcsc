@@ -129,7 +129,9 @@ Page({
      */
     call: function (e) {
         let mobile = e.currentTarget.dataset.mobile;
+        //用户登录
         App.call(mobile);
+        
     },
 
     /**

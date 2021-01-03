@@ -1,213 +1,213 @@
 {
-  "description": "项目配置文件",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "enhance": false,
-    "postcss": true,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "newFeature": true,
-    "coverView": true,
-    "nodeModules": false,
-    "autoAudits": false,
-    "showShadowRootInWxmlPanel": true,
-    "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": false,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
-    "useApiHook": true,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
+    "description": "项目配置文件",
+    "packOptions": {
+        "ignore": []
     },
-    "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
-    "userConfirmedBundleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "bundle": false
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.12.0",
-  "appid": "wx2bb9715d0bb70220",
-  "projectname": "tsbcsc",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "isGameTourist": false,
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "condition": {
-    "plugin": {
-      "list": []
+    "setting": {
+        "urlCheck": false,
+        "es6": true,
+        "enhance": false,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": true,
+        "coverView": true,
+        "nodeModules": false,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": false,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "useMultiFrameRuntime": false,
+        "useApiHook": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "useIsolateContext": true,
+        "useCompilerModule": true,
+        "userConfirmedUseCompilerModuleSwitch": false,
+        "userConfirmedBundleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true,
+        "bundle": false
     },
-    "game": {
-      "list": []
+    "compileType": "miniprogram",
+    "libVersion": "2.12.0",
+    "appid": "wx2bb9715d0bb70220",
+    "projectname": "tsbcsc",
+    "debugOptions": {
+        "hidedInDevtools": []
     },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "id": 0,
-          "name": "分类",
-          "pathName": "pages/stone/stone",
-          "query": "",
-          "scene": null
+    "isGameTourist": false,
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "plugin": {
+            "list": []
         },
-        {
-          "name": "产品详情",
-          "pathName": "pages/stone_detail/stone_detail",
-          "query": "id=24&scene=id%3D1",
-          "scene": 1000
+        "game": {
+            "list": []
         },
-        {
-          "id": 2,
-          "name": "商家列表",
-          "pathName": "pages/store/store",
-          "query": "",
-          "scene": null
+        "gamePlugin": {
+            "list": []
         },
-        {
-          "name": "商家详情",
-          "pathName": "pages/store_detail/store_detail",
-          "query": "id=17",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "资源合作",
-          "pathName": "pages/cooper/cooper",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "供求列表",
-          "pathName": "pages/supply/supply",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "客户详情",
-          "pathName": "pages/cooper_detail/cooper_detail",
-          "query": "id=8",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "资讯列表",
-          "pathName": "pages/news/news",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "资讯详情",
-          "pathName": "pages/news_detail/news_detail",
-          "query": "id=12",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "需求发布",
-          "pathName": "pages/release/release",
-          "query": "id=1",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "关于我们",
-          "pathName": "pages/company/company",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "联系我们",
-          "pathName": "pages/contanct/contanct",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "发布需求",
-          "pathName": "pages/release/release",
-          "query": "id=41",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "登录",
-          "pathName": "pages/login/login",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "我的",
-          "pathName": "pages/about/about",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "注册",
-          "pathName": "pages/register/register",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "我的收藏",
-          "pathName": "pages/fav/fav",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "我的发布",
-          "pathName": "pages/publish/publish",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 18,
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "资源详情",
-          "pathName": "pages/cooper_detail/cooper_detail",
-          "query": "id=10",
-          "scene": null
-        },
-        {
-          "name": "案例详情",
-          "pathName": "pages/cooper_case/cooper_case",
-          "query": "id=6",
-          "scene": null
-        },
-        {
-          "name": "pages/spot_detail/spot_detail",
-          "pathName": "pages/spot_detail/spot_detail",
-          "query": "id=35&variety=拜伦黑金",
-          "scene": null
+        "miniprogram": {
+            "list": [
+                {
+                    "id": 0,
+                    "name": "分类",
+                    "pathName": "pages/stone/stone",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "产品详情",
+                    "pathName": "pages/stone_detail/stone_detail",
+                    "query": "id=38",
+                    "scene": 1000
+                },
+                {
+                    "id": 2,
+                    "name": "商家列表",
+                    "pathName": "pages/store/store",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "商家详情",
+                    "pathName": "pages/store_detail/store_detail",
+                    "query": "id=17",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "资源合作",
+                    "pathName": "pages/cooper/cooper",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "供求列表",
+                    "pathName": "pages/supply/supply",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "客户详情",
+                    "pathName": "pages/cooper_detail/cooper_detail",
+                    "query": "id=8",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "资讯列表",
+                    "pathName": "pages/news/news",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "资讯详情",
+                    "pathName": "pages/news_detail/news_detail",
+                    "query": "id=12",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "需求发布",
+                    "pathName": "pages/release/release",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "关于我们",
+                    "pathName": "pages/company/company",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "联系我们",
+                    "pathName": "pages/contanct/contanct",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "发布需求",
+                    "pathName": "pages/release/release",
+                    "query": "id=41",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "登录",
+                    "pathName": "pages/login/login",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "我的",
+                    "pathName": "pages/about/about",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "注册",
+                    "pathName": "pages/register/register",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "我的收藏",
+                    "pathName": "pages/fav/fav",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "我的发布",
+                    "pathName": "pages/publish/publish",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 18,
+                    "name": "pages/index/index",
+                    "pathName": "pages/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "资源详情",
+                    "pathName": "pages/cooper_detail/cooper_detail",
+                    "query": "id=10",
+                    "scene": null
+                },
+                {
+                    "name": "案例详情",
+                    "pathName": "pages/cooper_case/cooper_case",
+                    "query": "id=6",
+                    "scene": null
+                },
+                {
+                    "name": "pages/spot_detail/spot_detail",
+                    "pathName": "pages/spot_detail/spot_detail",
+                    "query": "id=35&variety=拜伦黑金",
+                    "scene": null
+                }
+            ]
         }
-      ]
     }
-  }
 }

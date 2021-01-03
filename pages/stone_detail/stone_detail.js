@@ -90,6 +90,19 @@ Page({
 
     getDetail: function (id){
         App.get(App.api.stoneDetail, {id: id}).then(result => {
+            if(!result){
+                App.showError("产品不存在", function(){
+                    wx.navigateBack({
+                      delta: 1,
+                      fail: function (e) {
+                          wx.switchTab({
+                            url: '/pages/index/index',
+                          })
+                      }
+                    })
+                })
+                return false;
+            }
             //img标签添加样式
             let info = result.store.content;
             info = info.replace(/style=\"(.+?)\"/g, ''); 
@@ -220,8 +233,11 @@ Page({
     call: function (e) {
         let mobile = this.data.stone.store.mobile;
         let _this = this;
+        //用户登录
         App.call(mobile,function(){
-            _this.setData({ showCall: false });
+            if(_this.data.showCall){
+                _this.setData({ showCall: false });
+            }
         });
     },
 
@@ -547,6 +563,18 @@ Page({
      */
     spot: function (e) {
         console.log(e)
+    },
+
+    /**
+     * 扫码测试
+     * 测试后台生成二维码的path参数
+     */
+    scanCode: function (e) {
+        wx.scanCode({
+            success (res) {
+                console.log(res)
+            }
+        })
     },
 
     /**
