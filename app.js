@@ -30,8 +30,19 @@ App({
                 }).then(result => {
                     console.log(result)
                     _this.globalData.isRegister = result.isRegister;
+                    //用户登录
+                    if (!_this.checkIsLogin()) {
+                        wx.navigateTo({
+                            url: '/pages/login/login',
+                        });
+                    }
                 }).catch(err => {
                     console.log(err);
+                    if (!_this.checkIsLogin()) {
+                        wx.navigateTo({
+                            url: '/pages/login/login',
+                        });
+                    }
                 })
             }
         });

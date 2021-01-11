@@ -124,6 +124,7 @@
 }
 .store_about .con {
     font-size: 26rpx;
+    text-align: left;
 }
 .store_comment {
     width: 690rpx;
