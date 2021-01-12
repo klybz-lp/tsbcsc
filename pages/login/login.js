@@ -87,7 +87,6 @@ Page({
     getPhoneNumber: function (e) {
         var _this = this;
         if (e.detail.errMsg == "getPhoneNumber:ok") {
-
             App.get(App.api.user_mobile, {encryptedData: e.detail.encryptedData,iv: e.detail.iv}, { loading: false,token: store.getItem('token') }).then(result => {
                 console.log(result)
                 store.setItem('mobile', result.phoneNumber);

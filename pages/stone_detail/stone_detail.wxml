@@ -25,7 +25,7 @@
                 <text class="store_name">{{stone.store.name}}</text>
                 <navigator url="/pages/store_detail/store_detail?id={{stone.store.id}}" class="icon_store">商家</navigator>
             </view>
-            <view class="store_mobile">
+            <view class="store_mobile" wx:if="{{stone.store.level==2}}">
                 <text>联系电话：{{stone.store.mobile}}</text>
                 <!-- <image mode="widthFix" src="/assets/image/store_mobile.png" bindtap="call"></image> -->
                 <text class="iconfont icon-dianhua" bindtap="call"></text>
@@ -85,7 +85,7 @@
         </view>
     </view>
     <view class="footer">
-        <view ontap="showCall" class="footer-item footer_service">
+        <view ontap="showCall" class="footer-item footer_service" wx:if="{{stone.store.level==2}}">
             <image mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/icon_service.png"></image>
             <text>客服管家</text>
         </view>

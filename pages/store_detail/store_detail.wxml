@@ -16,14 +16,14 @@
         </view>
         <view class="store_name">{{store.name}}</view>
         <view class="store_contact">联系人：{{store.contact}}</view>
-        <view class="store_mobile">
-                <text>联系电话：{{store.mobile}}</text>
-                <text class="iconfont icon-dianhua" bindtap="call"></text>
-            </view>
-            <view class="store_address">
-                <text>店铺地址：{{store.province_name}}{{store.city_name}}{{store.address}}</text>
-                <text class="iconfont icon-dizhi" catchtap="navigation"></text>
-            </view>
+        <view class="store_mobile" wx:if="{{store.level==2}}">
+            <text>联系电话：{{store.mobile}}</text>
+            <text class="iconfont icon-dianhua" bindtap="call"></text>
+        </view>
+        <view class="store_address">
+            <text>店铺地址：{{store.province_name}}{{store.city_name}}{{store.address}}</text>
+            <text class="iconfont icon-dizhi" catchtap="navigation"></text>
+        </view>
     </view>
     <view class="line"></view>
     <view class="store_market">

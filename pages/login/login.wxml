@@ -41,6 +41,7 @@
             <view class="identity_footer">
                 <!-- <button type="primary" catchtap="identitySure">确认</button> -->
                 <button class="loginBtn" lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信一键登录</button>
+                <text ontap="onNotLogin">先逛逛</text>
             </view>
         </view>
     </view>

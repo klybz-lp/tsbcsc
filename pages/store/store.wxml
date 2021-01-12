@@ -32,10 +32,10 @@
                         <image mode="widthFix" src="{{sitem.stone_cover}}" />
                       
                     </navigator>
-                    <view wx:for="{{3-item.stone.length}}" wx:key="*this" class="store_pics">
+                    <view wx:for="{{5-item.level-item.stone.length}}" wx:key="*this" class="store_pics">
                         <image mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/stone_thumb.jpg"></image>
                     </view>
-                    <view class="store_pics store_contact" data-mobile="{{item.mobile}}" bindtap="call">
+                    <view class="store_pics store_contact" data-mobile="{{item.mobile}}" bindtap="call" wx:if="{{item.level==2}}">
                         <text class="iconfont icon-dianhua1"></text>
                         <text>联系商家</text>
                     </view>
