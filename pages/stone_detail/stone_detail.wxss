@@ -1,12 +1,12 @@
 .stone_pics {
-    width: 630rpx;
-    height: 360rpx;
+    width: 750rpx;
+    height: 500rpx;
     margin: 40rpx auto;
     position: relative;
 }
 .stone_pics swiper {
-    width: 630rpx;
-    height: 360rpx;
+    width: 750rpx;
+    height: 500rpx;
     background-color: #f5f2f2;
     overflow: hidden;
 }
@@ -66,6 +66,17 @@
     flex: 1;
     font-weight: bold;
     color: #000;
+}
+.stone_info .stone_price {
+    color: #cdb288;
+}
+.stone_info .stone_price text {
+    font-size: 36rpx;
+    color: #ef9811;
+    padding-right: 10rpx;
+    font-weight: 520;
+    position: relative;
+    top: -2rpx;
 }
 .stone_info .stone_spot {
     width: 100rpx;
@@ -161,7 +172,7 @@
     line-height: 90rpx;
     font-size: 26rpx;
     border-bottom: 1px solid #f3f3f3;
-    padding: 0 40rpx 0 50rpx;
+    /* padding: 0 40rpx 0 50rpx; */
 }
 .params_wrap {
     margin-bottom: 60rpx;
@@ -185,21 +196,19 @@
     height: 60rpx;
     display: flex;
     display: -webkit-flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 .stone_tab text {
-    width: 49%;
     height: 100%;
     line-height: 60rpx;
     text-align: center;
-    background-color: #000;
-    color: #cdb288;
-    font-size: 26rpx;
+    font-size: 28rpx;
+    font-weight: 550;
 }
 .stone_tab text.active {
-    background-color: #cdb288;
     color: #000;
+    border-bottom : 1px solid #cdb288;
 }
 .stone_content {
     margin: 40rpx 0;
@@ -222,44 +231,54 @@
 }
 .footer {
     width: 100%;
-    height: 100rpx;
-    line-height: 100rpx;
+    padding: 20rpx 20rpx 10rpx;
     display: flex;
     display: -webkit-flex;
     align-items: center;
+    justify-content: space-between;
     position: fixed;
     left: 0;
     bottom: 0;
+    background: #fff;
+    box-shadow: 0 0 10rpx #f5f5f5;
+}
+.footer .footer_l {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
 }
 .footer .footer-item {
-    flex: 1;
-    font-size: 32rpx;
+    font-size: 28rpx;
     text-align: center;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    margin-right: 30rpx;
 }
 .footer .footer_service {
-    color: #fff;
-    background: #000;
     display: flex;
     display: -webkit-flex;
     align-items: center;
     justify-content: center;
+    color: #cdb288;
 }
-.footer .footer-item {
-    display: flex;
-    display: -webkit-flex;
-    justify-content: center;
-    align-items: center;
+
+.footer .iconfont {
+    font-size: 40rpx;
+    line-height: 30rpx;
 }
-.footer image {
-    width: 55rpx;
-    padding: 0 20rpx 0 0;
+.footer .footer_service text {
+    color:　#cdb288;
 }
-.footer .footer_apply image {
-    width: 60rpx;
-}
-.footer .footer_apply {
+.footer .apply {
     background: #cdb288;
-    color: #000
+    color: #fff;
+    font-size: 26rpx;
+    padding: 6rpx 25rpx;
+    border-radius: 25rpx;
+}
+.footer_apply.active {
+    color: #cdb288;
 }
 
 /* dialog */
@@ -506,3 +525,13 @@
     font-size: 30rpx !important;
     background: #cdb288 !important;
   }
+
+  .stone_number {
+      /* margin: 20rpx 30rpx; */
+      display: flex;
+      display: -webkit-flex;
+      font-size: 26rpx;
+      color: #999;
+      justify-content: space-between;
+  }
+  

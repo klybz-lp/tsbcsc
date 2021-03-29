@@ -1,6 +1,6 @@
 <view class="search">
-    <navigator url="/pages/search/search" class="search-content">
-        <text class="iconfont icon-sousuo"></text>
-        <text class="search-text">搜索</text>
-    </navigator>
-</view>
+    <view class="wrap">
+        <icon class="icon-small" type="search" size="44rpx"></icon>
+        <input class="weui-input" placeholder="岩板" bindfocus="inputFocus" bindblur="blurFocus" bindinput="inputSearch"/>
+    </view>
+</view> 

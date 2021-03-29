@@ -14,6 +14,7 @@ Page({
             {value: 1, name: '游客'},
             {value: 2, name: '设计师'},
             {value: 3, name: '商家'},
+            {value: 4, name: '建材同行'},
         ],
         identity: 1,
         showIdentity: false
@@ -48,17 +49,22 @@ Page({
         App.globalData.userInfo = e.detail.rawData
         store.setItem('userInfo', e.detail.rawData);
         let identity = App.globalData.isRegister ? 0 :  _this.data.identity;
+        let data = {  
+            user_info: e.detail.rawData,
+            encrypted_data: e.detail.encryptedData,
+            iv: e.detail.iv,
+            signature: e.detail.signature,
+            identity: identity,
+        };
+        if(App.globalData.refer_id && !App.globalData.isRegister){
+            data.refer_id = App.globalData.refer_id;
+        }
+    
         wx.login({
             success(res) {
+                data.code = res.code,
                 //post请求  
-                App.post(App.api.login, {  
-                    code: res.code,
-                    user_info: e.detail.rawData,
-                    encrypted_data: e.detail.encryptedData,
-                    iv: e.detail.iv,
-                    signature: e.detail.signature,
-                    identity: identity,
-                }, { token: store.getItem('token')}).then(result => {
+                App.post(App.api.login, data, { token: store.getItem('token')}).then(result => {
                     store.setItem('token', result.token);
                     store.setItem('user_id', result.user_id);
                     //判断是否已经绑定手机号

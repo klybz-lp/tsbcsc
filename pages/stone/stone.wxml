@@ -4,41 +4,81 @@
             <!-- <image mode="widthFix" bindfocus="inputFocus" bindblur="blurFocus"src="/assets/image/icon_search.png" wx:if="{{showIcon}}"></image> -->
             <icon class="icon-small" type="search" size="34rpx" hidden="{{!showIcon}}"></icon>
             <input class="weui-input" placeholder="岩板" bindfocus="inputFocus" bindblur="blurFocus" bindinput="inputSearch"/>
-            <text bindtap="searchStone">搜索</text>
+            <text catchtap="searchStone">搜索</text>
         </form>
     </view> 
-    <view class="project">
-        <view class="project-head">
-            <view class="project-tab">
-                <view class="tab-item {{currentIndex == 1 ? 'active' : ''}}" data-id="1" bindtap="toggleTab">
-                    <text class="text">{{species_text}}</text>
-                    <text class="iconfont icon-sanjiao1 {{currentIndex == 1 ? 'active' : ''}}"></text>
-                </view>
-                <view class="tab-item {{currentIndex == 2 ? 'active' : ''}}" data-id="2" bindtap="toggleTab">
-                    <text class="text">{{color_text}}</text>
-                    <text class="iconfont icon-sanjiao1 {{currentIndex == 2 ? 'active' : ''}}"></text>
-                </view>
-                <view class="tab-item {{currentIndex == 3 ? 'active' : ''}}" data-id="3" bindtap="toggleTab">
-                    <text class="text">{{texture_text}}</text>
-                    <text class="iconfont icon-sanjiao1 {{currentIndex == 3 ? 'active' : ''}}"></text>
-                </view>
+    <view class="stone_species" id="stone_species">
+        <block wx:for="{{stoneType['species']}}" wx:key="index">
+        <view class="species_item {{species_id == item.id ? 'active' : ''}}" data-type="species" data-id="{{item.id}}"  data-index="{{index}}" catchtap="selecSpecies">
+            <view class="pic">
+                <image src="{{item.pic_path}}"></image>
             </view>
-            <view class="tab-list tab-list-1" hidden="{{currentTab != 1}}">
-                <block wx:for="{{stoneType['species']}}" wx:key="index">
-                <text data-index="{{index}}" data-type="species" bindtap="selectItem">{{item.name}}</text>
-                </block>
+            <view class="name">{{item.name}}</view>
+        </view>
+        </block>
+    </view>
+    <view class="project-head {{scrollTop > speciesHeight ? 'fixed' : ''}}">
+        <view class="project-tab">
+            <!-- <view class="tab-item {{currentIndex == 1 ? 'active' : ''}}" data-id="1" catchtap="toggleTab">
+                <text class="text">{{species_text}}</text>
+                <text class="iconfont icon-sanjiao1 {{currentIndex == 1 ? 'active' : ''}}"></text>
+            </view> -->
+            <view class="tab-item {{currentIndex == 1 ? 'active' : ''}}" data-id="1" catchtap="toggleTab">
+                <text class="text">{{color_text}}</text>
+                <text class="iconfont icon-sanjiao1 {{currentIndex == 1 ? 'active' : ''}}"></text>
             </view>
-            <view class="tab-list tab-list-2" hidden="{{currentTab != 2}}">
-                <block wx:for="{{stoneType['color']}}" wx:key="index">
-                <text data-index="{{index}}" data-type="color" bindtap="selectItem">{{item.name}}</text>
-                </block>
-            </view>
-            <view class="tab-list tab-list-3" hidden="{{currentTab != 3}}">
-                <block wx:for="{{stoneType['texture']}}" wx:key="index">
-                <text data-index="{{index}}" data-type="texture" bindtap="selectItem">{{item.name}}</text>
-                </block>
+            <view class="tab-item {{currentIndex == 2 ? 'active' : ''}}" data-id="2" catchtap="toggleTab">
+                <text class="text">{{texture_text}}</text>
+                <text class="iconfont icon-sanjiao1 {{currentIndex == 2 ? 'active' : ''}}"></text>
             </view>
         </view>
+        <view class="project-sort">
+            <view class="sort_item {{sortIndex == 0 ? 'active' : ''}}" data-field="pv" data-index="0" catchtap="sort">
+                <view class="text">点击量</view>
+                <view class="iconfont_group">
+                    <text class="iconfont icon-sanjiao2 {{(!sortRule &&  sortIndex == 0) ? 'active' : ''}}"></text>
+                    <text class="iconfont icon-sanjiao1 {{(sortRule &&  sortIndex == 0) ? 'active' : ''}}"></text>
+                </view>
+            </view>
+            <view class="sort_item {{sortIndex == 1 ? 'active' : ''}}" data-field="fav" data-index="1" catchtap="sort">
+                <view class="text">收藏量</view>
+                <view class="iconfont_group">
+                    <text class="iconfont icon-sanjiao2 {{(!sortRule &&  sortIndex == 1) ? 'active' : ''}}"></text>
+                    <text class="iconfont icon-sanjiao1 {{(sortRule &&  sortIndex == 1) ? 'active' : ''}}"></text>
+                </view>
+            </view>
+            <view class="sort_item {{sortIndex == 2 ? 'active' : ''}}" data-field="apply" data-index="2" catchtap="sort">
+                <view class="text">索样量</view>
+                <view class="iconfont_group">
+                    <text class="iconfont icon-sanjiao2 {{(!sortRule &&  sortIndex == 2) ? 'active' : ''}}"></text>
+                    <text class="iconfont icon-sanjiao1 {{(sortRule &&  sortIndex == 2) ? 'active' : ''}}"></text>
+                </view>
+            </view>
+            <view class="sort_item {{sortIndex == 3 ? 'active' : ''}}" data-field="price" data-index="3" catchtap="sort">
+                <view class="text">价格</view>
+                <view class="iconfont_group">
+                    <text class="iconfont icon-sanjiao2 {{(!sortRule &&  sortIndex == 3) ? 'active' : ''}}"></text>
+                    <text class="iconfont icon-sanjiao1 {{(sortRule &&  sortIndex == 3) ? 'active' : ''}}"></text>
+                </view>
+            </view>
+        </view>
+        <!-- <view class="tab-list tab-list-1" hidden="{{currentTab != 1}}">
+            <block wx:for="{{stoneType['species']}}" wx:key="index">
+            <text data-index="{{index}}" data-type="species" catchtap="selectItem">{{item.name}}</text>
+            </block>
+        </view> -->
+        <view class="tab-list tab-list-2" hidden="{{currentTab != 1}}">
+            <block wx:for="{{stoneType['color']}}" wx:key="index">
+            <text data-index="{{index}}" data-type="color" catchtap="selectItem">{{item.name}}</text>
+            </block>
+        </view>
+        <view class="tab-list tab-list-3" hidden="{{currentTab != 2}}">
+            <block wx:for="{{stoneType['texture']}}" wx:key="index">
+            <text data-index="{{index}}" data-type="texture" catchtap="selectItem">{{item.name}}</text>
+            </block>
+        </view>
+    </view>
+    <view class="project" id="stone">
         <view class="project_main">
             <block wx:for="{{stone}}" wx:key="index">
             <view class="project_item">

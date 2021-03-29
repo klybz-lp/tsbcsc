@@ -13,14 +13,20 @@ Page({
         last_page: 1,
         page: 0,
         page_size: 10,
-        noData: false
+        noData: false,
+        d_level: 0
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let isLcsg = App.globalData.isLcsg;
         let category_id = options.id || 0;
+        if(isLcsg) {
+            category_id = 4;
+            App.globalData.isLcsg = false;
+        }
         this.setData({
             category_id
         });
@@ -42,6 +48,14 @@ Page({
         // }).catch(err => {
         //     console.log(err);
         // })
+    },
+
+    onShow: function () {
+        //this.getUserLocation();
+        var pages = getCurrentPages();
+        let currentPage = pages[pages.length - 1]; 
+        let route = currentPage['route'];
+        App.globalData.pages.push(route)
     },
 
     /**
@@ -128,9 +142,15 @@ Page({
      * 拨打电话
      */
     call: function (e) {
-        let mobile = e.currentTarget.dataset.mobile;
-        //用户登录
-        App.call(mobile);
+        App.checkLevel(function(res) {
+            if(res == 1) {
+                let mobile = e.currentTarget.dataset.mobile;
+                //用户登录
+                App.call(mobile);
+            } else {
+                App.showError("您没有权限");
+            }
+        });
         
     },
 
@@ -164,12 +184,6 @@ Page({
         this.getList();
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
 
     /**
      * 页面上拉触底事件的处理函数

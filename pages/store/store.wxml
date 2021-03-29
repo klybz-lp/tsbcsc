@@ -30,7 +30,6 @@
                 <view class="project_b">
                     <navigator url="/pages/stone_detail/stone_detail?id={{sitem.id}}" class="store_pics" wx:for="{{item.stone}}" wx:for-item="sitem" wx:key="index">
                         <image mode="widthFix" src="{{sitem.stone_cover}}" />
-                      
                     </navigator>
                     <view wx:for="{{5-item.level-item.stone.length}}" wx:key="*this" class="store_pics">
                         <image mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/stone_thumb.jpg"></image>

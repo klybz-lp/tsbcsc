@@ -22,6 +22,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let d_level = App.globalData.d_level;
+        this.setData({d_level});
         let id = options.id;
         if(id){
             App.get(App.api.supplyDetail, {id: id}).then(result => {
@@ -37,15 +39,29 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        //判断是否为商家
-        App.checkIsStore(res => {
-            let isStore = (res==2) ? true : false;
-            this.setData({
-                isStore
+        var pages = getCurrentPages();
+        let currentPage = pages[pages.length - 1]; 
+        let route = currentPage['route'];
+        App.globalData.pages.push(route)
+
+        let _this = this;
+        App.checkLevel(function(res) {
+            _this.setData({
+                d_level: res
             },() => {
-                this.getList();
-            })
+                _this.getList()
+            });
         });
+
+        //判断是否为商家
+        // App.checkIsStore(res => {
+        //     let isStore = (res==2) ? true : false;
+        //     this.setData({
+        //         isStore
+        //     },() => {
+        //         this.getList();
+        //     })
+        // });
     },
 
     /**
@@ -70,12 +86,13 @@ Page({
             App.get(App.api.supplyList, param, { loading: false }).then(result => {
                 wx.hideNavigationBarLoading();
                 result.data.forEach(item => {
-                    item.pics = item.images.slice(0,3);
+                    //item.pics = item.images.slice(0,3);
+                    item.pics = item.images;
                 });
                 if(!this.data.isStore){ //入驻商家
                     result.data.forEach(item => {
-                        item.user_name = item.user_name.replace(/(.{1})(.{1,})/g, "$1**");
-                        item.mobile = item.mobile.replace(/(.{3})(.{1,})/g, "$1********");
+                        //item.user_name = item.user_name.replace(/(.{1})(.{1,})/g, "$1**");
+                        //item.mobile = item.mobile.replace(/(.{3})(.{1,})/g, "$1********");
                     });
                 }
                 
@@ -189,18 +206,50 @@ Page({
     },
 
     /**
+     * 点赞
+     */
+    like: function (e) {
+        let index = e.currentTarget.dataset.index;
+        let supply = this.data.supply;
+        let supply_id = supply[index]['id'];
+        if (App.checkIsLogin()) {
+            App.post(App.api.addLike, {supply_id: supply_id, user_id: store.getItem('user_id')}, {loading: false, token: store.getItem('token')}).then(result => { 
+                supply[index].isLike = !result.isLike;
+                this.setData({ supply });  
+                wx.showToast({
+                    title: result.msg,
+                    icon: 'success',
+                    duration: 2000
+                })
+            }).catch(err => {
+                console.log(err);        
+            })
+        } else {
+            App.showError("请先登录");
+        }
+    },
+
+    /**
      * 拨打电话
      * @param {*} e 
      */
     call: function (e) {
         let mobile = e.currentTarget.dataset.mobile;
-        App.checkIsStore(res => {
-            if(res == 2){
+        //判断代理等级
+        App.checkLevel(function(res) {
+            if(res == 1) {
                 App.call(mobile);
             } else {
-                App.showError("您没有权限")
+                App.showError("您没有权限");
             }
         });
+        // App.checkIsStore(res => {
+        //     if(res == 2){
+        //         App.call(mobile);
+        //     } else {
+        //         App.showError("您没有权限")
+        //     }
+        // });
     },
 
     /**

@@ -1,14 +1,15 @@
 <view class="container">
     <view class="store_pics">
-        <swiper bindchange="swiperChange" circular>
+        <image mode="widthFix" class="according" src="{{topPic}}"/>
+        <!-- <swiper bindchange="swiperChange" circular>
             <swiper-item wx:for="{{store.images}}" wx:key="index">
                 <image mode="widthFix" catchtap="previewImage" data-src="{{item.file_path}}" class="store_thumb" src="{{item.file_path}}"/>
             </swiper-item>
-        </swiper>
+        </swiper> -->
         <image class="icon_fav" mode="widthFix" src="{{isFav ? 'https://stcdn.taoshibancang.com/static/wechat/icon_fav_select.png' : 'https://stcdn.taoshibancang.com/static/wechat/icon_fav.png'}}" catchtap="fav"></image>
         <image class="icon_share" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/icon_share.png"></image>
         <button open-type="share"></button>
-        <view class="imageCount">{{current+1}}/{{store.images.length}}</view>
+        <!-- <view class="imageCount">{{current+1}}/{{store.images.length}}</view> -->
     </view>
     <view class="store_info">
         <view class="store_logo">
@@ -16,7 +17,7 @@
         </view>
         <view class="store_name">{{store.name}}</view>
         <view class="store_contact">联系人：{{store.contact}}</view>
-        <view class="store_mobile" wx:if="{{store.level==2}}">
+        <view class="store_mobile" wx:if="{{store.level==2 && d_level==1}}">
             <text>联系电话：{{store.mobile}}</text>
             <text class="iconfont icon-dianhua" bindtap="call"></text>
         </view>
@@ -71,7 +72,7 @@
     <view class="store_main">
         <view class="store_tab">
             <text data-id="1" ontap="selectTab" class="{{currentTab==1 ? 'active' : ''}}">产品展示</text>
-            <text data-id="2" ontap="selectTab" class="{{currentTab==2 ? 'active' : ''}}">工程案例</text>
+            <!-- <text data-id="2" ontap="selectTab" class="{{currentTab==2 ? 'active' : ''}}">工程案例</text> -->
             <text data-id="3" ontap="selectTab" class="{{currentTab==3 ? 'active' : ''}}">公司实景</text>
         </view>
         <view class="store_content">

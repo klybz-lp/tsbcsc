@@ -57,6 +57,7 @@ module.exports = {
                     'token': option.token
                 },
                 success: function (result) {
+                    console.log(result)
                     if(result.statusCode == 401){
                         wx.showModal({
                             title: "提示",

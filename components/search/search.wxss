@@ -1,24 +1,29 @@
-/* components/search.wxss */
-.search {
-    height: 80rpx;
-    padding: 10rpx;
-    background-color: var(--themeColor);
+.search  {
+    width: 750rpx;
+    background: #fff;
+    position: fixed;
+    left: 0rpx;
+    top: 0;
+    z-index: 100;
+    font-size: 26rpx;
 }
-.search-content {
-    width: 710rpx;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    color: #666;
+.search .wrap {
+    padding: 30rpx;
 }
-.search .iconfont {
-    font-size: 40rpx;
-}
-.search-text {
+.search input {
+    margin: 0 auto;    
+    width: 690rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    padding: 10rpx 0;
+    text-align: center;
     font-size: 30rpx;
-    padding-left: 10rpx;
-
+    color: #333;
+    background: #f1f1f1;
+    border-radius: 10rpx;
+}
+.search icon {
+    position: absolute;
+    top: 44rpx;
+    left: 290rpx;
 }

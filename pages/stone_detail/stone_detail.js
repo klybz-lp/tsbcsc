@@ -64,7 +64,11 @@ Page({
         let pages = getCurrentPages();
         let currentPage = [...pages].pop();
         let options = currentPage.options;
-        this.getDetail(options.id);
+        let _this = this;
+        App.checkLevel(function(res) {
+            _this.setData({d_level: res});
+            _this.getDetail(options.id);
+        });
         // let id = options.id;
         // let page = currentPage.route;  //当前页面路由
         // let scene = decodeURIComponent(options.scene)

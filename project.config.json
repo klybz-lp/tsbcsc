@@ -84,7 +84,7 @@
                 {
                     "name": "商家详情",
                     "pathName": "pages/store_detail/store_detail",
-                    "query": "id=17",
+                    "query": "id=1",
                     "scene": null
                 },
                 {
@@ -208,6 +208,12 @@
                     "pathName": "pages/spot_detail/spot_detail",
                     "query": "id=35&variety=拜伦黑金",
                     "scene": null
+                },
+                {
+                    "name": "首页带场景",
+                    "pathName": "pages/index/index",
+                    "query": "",
+                    "scene": 1025
                 }
             ]
         }

@@ -23,10 +23,10 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        var pages = getCurrentPages();
-        let currentPage = pages[pages.length - 1]; //当前页面
-        let route = currentPage['route'];
-        App.globalData.pages.push(route)
+        // var pages = getCurrentPages();
+        // let currentPage = pages[pages.length - 1]; //当前页面
+        // let route = currentPage['route'];
+        // App.globalData.pages.push(route)
     },
 
     setType: function (e) {
@@ -69,6 +69,11 @@ Page({
             return;
         }
 
+        if (!(/^1[3456789]\d{9}$/.test(data.mobile))) {
+            App.showError('手机号格式不正确');
+            return;
+        }
+
         data.images = this.data.uploadFile.map(item => {
             return item.file_id
         })
@@ -79,10 +84,13 @@ Page({
 
         App.post(App.api.addSupply, data, { loading: false, token: store.getItem('token') }).then(result => {
             //服务器端code为-1的不会执行下面的代码
-            console.log(result);
+            if(result.msg == "发布内容违规"){
+                App.showError(result.msg);
+                return;
+            }
             App.showSuccess(result.msg,function(){
-                wx.redirectTo({
-                  url: '../supply/supply',
+                wx.switchTab({
+                    url: '../supply/supply',
                 })
             });
         }).catch(err => {
@@ -127,26 +135,39 @@ Page({
         wx.uploadFile({
             url: App.api.supplyUpload,
             filePath: data[i],
+            header: {
+                'content-type': 'multipart/form-data'
+            },        
             name: 'file',
             success(res) {
+                let result = JSON.parse(res.data);
                 if (res.statusCode == 200) {
-                    success++;
-                    let result = JSON.parse(res.data);
-                    let uploadFile = that.data.uploadFile;
-                    uploadFile.push(result.result);
-                    that.setData({uploadFile});
-                    wx.showToast({
-                        title: result.message,
-                        icon: 'success',
-                        duration: 2000
-                    })
+                    if(result.code == 1) {
+                        success++;
+                        let result = JSON.parse(res.data);
+                        let uploadFile = that.data.uploadFile;
+                        uploadFile.push(result.result);
+                        that.setData({uploadFile});
+                        wx.showToast({
+                            title: result.message,
+                            icon: 'success',
+                            duration: 2000
+                        })
+                    } else {
+                        wx.showToast({
+                            title: result.message,
+                            icon: 'success',
+                            duration: 2000
+                        })
+                    }
                 } else {
                     wx.showToast({
-                        title: '图片上传失败',
+                        title: result.message || '图片上传失败',
                         icon: 'none',
                         duration: 2000
                     })
                 }
+                
             },
             fail: function (res) {
                 console.log(res);

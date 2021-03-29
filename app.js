@@ -7,8 +7,8 @@ let qqmapsdk;
 
 const tabBarLinks = [
     'pages/index/index',
-    'pages/stone/stone',
-    'pages/release/release',
+    'pages/store/store',
+    'pages/supply/supply',
     'pages/contanct/contanct',
     'pages/about/about'
   ];
@@ -21,6 +21,7 @@ App({
         return request.fetch(url, data, option);
     },
     onLaunch: function () {
+
         let _this =this;
         //判断用户是否已经注册
         wx.login({
@@ -29,7 +30,9 @@ App({
                     code: res.code,
                 }).then(result => {
                     console.log(result)
-                    _this.globalData.isRegister = result.isRegister;
+                    _this.globalData.isRegister = result ? true : false;
+                    _this.globalData.d_level = result ? result.d_level : 0;
+                    console.log(_this.globalData.isRegister,_this.globalData.d_level)
                     //用户登录
                     if (!_this.checkIsLogin()) {
                         wx.navigateTo({
@@ -65,6 +68,34 @@ App({
      */
     onShow() {
     
+    },
+
+    /**
+     * 获取登录用户代理等级
+     */
+    checkLevel(callback) {
+        if (!this.checkIsLogin()) {
+            // wx.navigateTo({
+            //   url: '../login/login',
+            // })
+            callback && callback(0);
+            return false;
+        }
+        let _this = this;
+        _this.post(_this.api.dLevel, {}, {loading: false, token: store.getItem('token')}).then(result => {
+            console.log(result)
+            _this.globalData.d_level = result.d_level;
+            callback && callback(result.d_level);
+            //用户登录
+            if (!_this.checkIsLogin()) {
+                wx.navigateTo({
+                    url: '/pages/login/login',
+                });
+            }
+        }).catch(err => {
+            console.log(err);
+        })
+
     },
 
     /**
@@ -423,7 +454,10 @@ App({
         user_id: null,
         userInfo: null,
         siteInfo: null,
+        refer_id: null,
         isRegister: false, //是否已经注册
-        pages: []  //记录访问的页面
+        isLcsg: false,
+        pages: [],  //记录访问的页面
+        d_level: 0 //用户代理级别
     }
 })

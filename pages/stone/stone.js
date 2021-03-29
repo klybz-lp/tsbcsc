@@ -22,23 +22,41 @@ Page({
         page_size: 10,
         noData: false,
         showApplyDialog: false,
-        applyData: null
+        applyData: null,
+        speciesHeight: 0,
+        sortIndex: null,
+        sortField: null, //排序字段
+        sortRule: 0, //排序规则,1表示倒序
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log(options)
         this.getStoneType();
         this.getList();
+        let that = this;
+        wx.createSelectorQuery().select('#stone_species').boundingClientRect(function (rect) {
+            that.setData({
+                speciesHeight: rect.height
+            });
+        }).exec()
+    
     },
 
     onShow: function () {
         //this.getUserLocation();
-        var pages = getCurrentPages();
-        let currentPage = pages[pages.length - 1]; 
-        let route = currentPage['route'];
-        App.globalData.pages.push(route)
+        // var pages = getCurrentPages();
+        // let currentPage = pages[pages.length - 1]; 
+        // let route = currentPage['route'];
+        // App.globalData.pages.push(route)
+    },
+
+    onPageScroll: function (e) {
+        this.setData({
+            scrollTop: e.scrollTop
+        });
     },
 
     /**
@@ -61,9 +79,11 @@ Page({
                 species_id: this.data.species_id,
                 color_id: this.data.color_id,
                 texture_id: this.data.texture_id,
-                keyword: this.data.keyword
+                keyword: this.data.keyword,
+                sortField: this.data.sortField,
+                sortRule: this.data.sortRule,
             }
-            App.get(App.api.stoneList, param, { loading: false }).then(result => {
+            App.get(App.api.stoneLists, param, { loading: false }).then(result => {
                 wx.hideNavigationBarLoading();
                 this.setData({
                     stone: [...this.data.stone, ...result.data],
@@ -175,6 +195,46 @@ Page({
             currentIndex: current,
             currentTab: tab
         });
+    },
+
+    /**
+     * 品种切换
+     */
+    selecSpecies: function (e) {
+        console.log(e.currentTarget.dataset)
+        let species_id = e.currentTarget.dataset.id;
+
+        this.setData({
+            species_id,
+            currentTab: 0,
+            page: 0,
+            last_page: 1,
+            stone: [],
+            noData: false
+        });
+        this.getList();
+
+    },
+
+    /**
+     * 排序
+     */
+    sort: function (e) {
+        let data = e.currentTarget.dataset;
+        let sortField = data.field;
+        let sortIndex = data.index;
+        let sortRule = (this.data.sortRule == 0) ? 1 : 0;
+        this.setData({
+            sortField,
+            sortIndex,
+            sortRule,
+            currentTab: 0,
+            page: 0,
+            last_page: 1,
+            stone: [],
+            noData: false
+        });
+        this.getList();
     },
 
     /**

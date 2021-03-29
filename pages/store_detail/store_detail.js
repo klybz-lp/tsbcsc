@@ -26,7 +26,8 @@ Page({
         isFav: false,
         noData: false,
         noMore: false,
-        showComment: false
+        showComment: false,
+        topPic: null
     },
 
     /**
@@ -35,6 +36,7 @@ Page({
     onLoad: function (options) {
         let store_id = options.id;
         this.getStone(store_id);
+
     },
 
     /**
@@ -44,7 +46,11 @@ Page({
         let pages = getCurrentPages();
         let currentPage = [...pages].pop();
         let options = currentPage.options;
-        this.getDetail(options.id);
+        let _this = this;
+        App.checkLevel(function(res) {
+            _this.setData({d_level: res});
+            _this.getDetail(options.id);
+        });
 
         // let userInfo = store.getItem('userInfo');
         // if(userInfo) userInfo = JSON.parse(userInfo);
@@ -62,13 +68,15 @@ Page({
             info = info.replace(/<p><br\/><\/p>/g, '');
             info = info.replace(/img/g, 'img style="width:100%;display:block;margin:20px auto;"');
             let pics = result.images.map(item => { return item.file_path });
+            let topPic = pics[0];
             let comment = result.comments
             //let commentLength = result.comments.length;
             this.setData({
                 store: result,
                 info,
                 pics,
-                comment
+                comment,
+                topPic
             });
             if(result.category_id == 3 || result.category_id == 4){
                 this.setData({showComment: true});

@@ -1,24 +1,36 @@
 .search {
-    margin: 40rpx 30rpx;
-    height: 60rpx;
-    line-height: 60rpx;
-    padding: 10rpx 0;
+    width: 750rpx;
+    height: 100rpx;
     text-align: center;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    padding: 20rpx 0;
+}
+.search form {
+    width: 690rpx;
+    height: 60rpx;
+    display: block;
+    margin: 10rpx auto;
     font-size: 26rpx;
     color: #b5b5b5;
-    background: #f1f1f1;
-    border-radius: 80rpx;
     position: relative;
 }
 .search input {
+    width: 690rpx;
+    margin: 0 auto;
+    background: #f1f1f1;
     height: 100%;
     font-size: 26rpx;
+    border-radius: 5rpx;
 }
 .search text {
     height: 58rpx;
     width: 140rpx;
     line-height: 58rpx;
-    border-radius: 58rpx;
+    border-radius: 5rpx;
     text-align: center;
     background: #cdb288;
     font-size: 26rpx;
@@ -35,25 +47,64 @@
     top: 13rpx;
     left: 280rpx;
 }
-.project {
-    margin: 0 30rpx;
-    position: relative;
+.container {
+    margin-top: 120rpx;
 }
-project-head {
+.stone_species {
+    height: 375rpx;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+}
+.stone_species .species_item {
+    width: 25%;
+    text-align: center;
+    padding: 10rpx 0;
+}
+.stone_species .species_item.active {
+    background: #f5f5f5;
+}
+.stone_species .species_item .pic {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 0 auto 10rpx;
+    background: #f5f5f5;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.stone_species .species_item .pic image {
+    width: 100%;
+}
+.stone_species .species_item .name {
+    color: #333;
+    font-size: 28rpx;
+}
+
+.project-head {
+    width: 750rpx;
     position: relative;
+    background: #fff;
+    z-index: 100;
+}
+.project-head.fixed {
+    position: fixed;
+    left: 0;
+    top: 100rpx;
 }
 .project-tab {
     display: flex;
     display: -webkit-flex;
     justify-content: space-between;
     align-items: center;
+    background: #f1f1f1;
 }
 .project-tab .tab-item {
+    flex: 1;
     font-size: 26rpx;
     color: #000;
     text-align: center;
     background: #f1f1f1;
-    padding: 2rpx 20rpx;
+    padding: 10rpx 20rpx;
 }
 .project-tab .active {
     background-color: #cdb288;
@@ -88,8 +139,51 @@ project-head {
     color: #333;
     padding-bottom: 10rpx;
 }
+.project-sort {
+    padding: 10rpx 0;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.project-sort .sort_item {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+.project-sort .sort_item .text {
+    font-size: 28rpx;
+    color: #333;
+    padding-right: 10rpx;
+}
+.project-sort .sort_item .iconfont_group {
+    display: flex;
+    flex-direction: column;
+}
+.project-sort .sort_item .iconfont_group text {
+    font-size: 24rpx;
+    color: #999;
+}
+.project-sort .sort_item .iconfont_group text:nth-child(1) {
+    position: relative;
+    top: 8rpx;
+}
+.project-sort .sort_item .iconfont_group text:nth-child(2) {
+    position: relative;
+    top: -8rpx;
+}
+.project-sort .sort_item .iconfont_group text.active {
+    color: #333;
+}
+.project-sort .sort_item.active .text,.project-sort .sort_item .iconfont_group text.active {
+    color: #cdb288;
+}
+
 .project_main {
-    margin: 40rpx 0rpx;
+    margin: 30rpx 30rpx;
     display: flex;
     display: -webkit-flex;
     justify-content: space-between;

@@ -1,12 +1,15 @@
 <view class="container">
     <view class="tab">
-        <view class="item {{type==0 ? 'active' : ''}}" catchtap="setType" data-type="0">默认</view>
-        <view class="item {{type==2 ? 'active' : ''}}" catchtap="setType" data-type="2">求购</view>
-        <view class="item {{type==1 ? 'active' : ''}}" catchtap="setType" data-type="1">供应</view>
+        <view class="tab_l">
+            <view class="item {{type==0 ? 'active' : ''}}" catchtap="setType" data-type="0">默认</view>
+            <view class="item {{type==2 ? 'active' : ''}}" catchtap="setType" data-type="2">求购</view>
+            <view class="item {{type==1 ? 'active' : ''}}" catchtap="setType" data-type="1">供应</view>
+        </view>
+        <navigator class="tab_r iconfont icon-icon-test1" url="/pages/release/release"></navigator>
     </view>
     <view class="supply">
         <block wx:for="{{supply}}" wx:for-item="item" wx:key="index">
-        <view class="supply_item">
+        <!-- <view class="supply_item">
             <view class="supply_time">{{item.ctime}}</view>
             <view class="supply_title">{{item.remark}}</view>
             <view class="supply_pics">
@@ -18,6 +21,33 @@
                 <view class="name">发布人：{{item.user_name}}</view>
                 <view class="mobile">联系电话：{{item.mobile}}</view>
                 <view class="view" data-item="{{item}}" ontap="view">查看详情</view>
+            </view>
+        </view> -->
+        <view class="supply_items">
+            <view class="avatar">
+                <image mode="widthFix" src="{{item.store ? item.store.logo_path : 'https://www.taoshibancang.com/static/wechat/avatar.png'}}"></image>  
+            </view>
+            <view class="con">
+                <view class="basic">
+                    <view class="name">{{item.user_name}}</view>
+                    <view class="contact" data-mobile="{{item.mobile}}" catchtap="call" wx:if="{{d_level==1}}">
+                        <text class="iconfont icon-dianhua1"></text>
+                        <text>联系</text>
+                    </view>
+                </view>
+                <view class="remark">{{item.remark}}</view>
+                <view class="supply_pics">
+                    <view class="supply_pics_item" wx:for="{{item.pics}}" data-pics="{{item.images}}" wx:for-item="itm" wx:key="idx">
+                        <image mode="widthFix" catchtap="previewImage" data-src="{{item.file_path}}" data-pics="{{item.images}}" src="{{itm.file_path}}"></image>
+                    </view>
+                </view>
+                <view class="tool">
+                    <view class="time">{{item.ctime}}</view>
+                    <view class="like" data-index="{{index}}" catchtap="like">
+                        <text class="iconfont icon-xin {{item.isLike ? 'active' : ''}}"></text>
+                        <!-- <text class="num">10</text> -->
+                    </view>
+                </view>
             </view>
         </view>
         </block>

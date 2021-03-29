@@ -5,9 +5,6 @@
                 <image mode="widthFix" catchtap="previewImage" data-src="{{item}}" class="stone_thumb" src="{{item}}"/>
             </swiper-item>
         </swiper>
-        <image class="icon_fav" mode="widthFix" src="{{isFav ? 'https://stcdn.taoshibancang.com/static/wechat/icon_fav_select.png' : 'https://stcdn.taoshibancang.com/static/wechat/icon_fav.png'}}" catchtap="fav"></image>
-        <image class="icon_share" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/icon_share.png"></image>
-        <button open-type="share"></button>
         <view class="imageCount">{{current+1}}/{{pics.length}}</view>
     </view>
     <view class="stone_info">
@@ -16,9 +13,49 @@
                 <text>{{stone.name}}</text>
                 <!-- <text class="is_new">新品</text> -->
             </view>
+            <block wx:if="{{stone.type == 1}}">
+                <view class="stone_price" wx:if="{{d_level != 0}}"><text>大板价</text>¥{{stone.price}}</view>
+            </block>
             <!-- <view class="stone_spot" wx:if="{{showSpot}}" catchtap="spot">现货</view> -->
             <!-- <text class="poster" catchtap="openDialog">生成海报</text> -->
         </view>
+        <view class="stone_params" wx:if="{{stone.type == 1}}">
+            <view class="params_title">产品参数</view>
+            <view class="params_wrap">
+                <view class="params_item">
+                    <text class="params_key">名称 |  Name</text>
+                    <text class="params_value">{{stone.fname}}</text>
+                </view>
+                <view class="params_item">
+                    <text class="params_key">色系 |  Color System</text>
+                    <text class="params_value">{{stone.color_name}}</text>
+                </view>
+                <view class="params_item">
+                    <text class="params_key">表面 |  Surface</text>
+                    <text class="params_value">{{stone.texture_name}}</text>
+                </view>
+                <view class="params_item">
+                    <text class="params_key">规格 |  Size</text>
+                    <text class="params_value">{{stone.size}}</text>
+                </view>
+                <!-- <view class="params_item">
+                    <text class="params_key">价格 |  Price</text>
+                    <text class="params_value">{{stone.price}}</text>
+                </view> -->
+                <!-- wx:if="{{showSpot}}" -->
+                <view class="params_item">
+                    <view class="stone_number">
+                        <text>样品量：{{stone.number}}</text>
+                        <text>索样量：{{stone.apply.length}}</text>
+                        <text>浏览量：{{stone.pv}}</text>
+                    </view>
+                </view>
+                <view class="params_item">
+                    <button type="primary" ontap="goSpotDetail" class="spot-btn">现货</button>
+                </view>
+            </view>
+        </view>
+        <block  wx:if="{{d_level == 1 && stone.store.id!=1}}">
         <view class="stone_store">
             <view class="store_info">
                 <image class="store_logo" src="{{stone.store.logo_path}}"></image>
@@ -36,42 +73,14 @@
                 <text class="iconfont icon-dizhi" ontap="navigation"></text>
             </view>
         </view>
+        </block>
     </view>
-    <view class="stone_params">
-        <view class="line"></view>
-        <view class="params_title">产品参数</view>
-        <view class="params_wrap">
-            <view class="params_item">
-                <text class="params_key">名称 |  Name</text>
-                <text class="params_value">{{stone.fname}}</text>
-            </view>
-            <view class="params_item">
-                <text class="params_key">色系 |  Color System</text>
-                <text class="params_value">{{stone.color_name}}</text>
-            </view>
-            <view class="params_item">
-                <text class="params_key">表面 |  Surface</text>
-                <text class="params_value">{{stone.texture_name}}</text>
-            </view>
-            <view class="params_item">
-                <text class="params_key">规格 |  Size</text>
-                <text class="params_value">{{stone.size}}</text>
-            </view>
-            <view class="params_item">
-                <text class="params_key">价格 |  Price</text>
-                <text class="params_value">{{stone.price}}</text>
-            </view>
-            <!-- wx:if="{{showSpot}}" -->
-            <view class="params_item">
-                <button type="primary" ontap="goSpotDetail" class="spot-btn">现货</button>
-            </view>
-        </view>
-    </view>
+    
     <view class="line"></view>
     <view class="stone_main">
         <view class="stone_tab">
-            <text data-id="1" ontap="selectTab" class="{{currentTab==1 ? 'active' : ''}}">产品介绍</text>
-            <text data-id="2" ontap="selectTab" class="{{currentTab==2 ? 'active' : ''}}">工程案例</text>
+            <text data-id="1" ontap="selectTab" class="{{currentTab==1 ? 'active' : ''}}">{{stone.type == 1 ? '产品介绍' : '案例介绍'}}</text>
+            <!-- <text data-id="2" ontap="selectTab" class="{{currentTab==2 ? 'active' : ''}}">工程案例</text> -->
         </view>
         <view class="stone_content">
             <view class="stone_detail" hidden="{{currentTab!=1}}">
@@ -85,13 +94,19 @@
         </view>
     </view>
     <view class="footer">
-        <view ontap="showCall" class="footer-item footer_service" wx:if="{{stone.store.level==2}}">
-            <image mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/icon_service.png"></image>
-            <text>客服管家</text>
+        <view class="footer_l">
+            <view ontap="showCall" class="footer-item footer_service" wx:if="{{stone.store.level==2 && stone.store.id!=1 && d_level==1}}">
+                <text class="iconfont icon-htmal5icon31"></text>
+                <text>客服</text>
+            </view>
+            <view class="footer-item footer_apply {{isFav ? 'active' : ''}}" catchtap="fav">
+                <text class="iconfont icon-shoucang"></text>
+                <text>收藏</text>
+            </view>
         </view>
-        <view ontap="apply"class="footer-item footer_apply">
-            <image mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/icon_apply.png"></image>
-            <text>索取样品</text>
+        <view class="footer_r">
+            <!-- <view class="apply">加入样品库</view> -->
+            <view class="apply" catchtap="apply">下单索样</view>
         </view>
     </view>
     <!-- 客服管家弹窗 -->

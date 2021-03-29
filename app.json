@@ -40,20 +40,20 @@
                 "selectedIconPath": "/assets/image/home-select.png"
             },
             {
-                "pagePath": "pages/stone/stone",
-                "text": "分类",
+                "pagePath": "pages/store/store",
+                "text": "入驻品牌",
                 "iconPath": "/assets/image/category.png",
                 "selectedIconPath": "/assets/image/category-select.png"
             },
             {
-                "pagePath": "pages/release/release",
-                "text": "供需发布",
+                "pagePath": "pages/supply/supply",
+                "text": "供需信息",
                 "iconPath": "/assets/image/release.png",
                 "selectedIconPath": "/assets/image/release-select.png"
             },
             {
                 "pagePath": "pages/contanct/contanct",
-                "text": "客服热线",
+                "text": "联系客服",
                 "iconPath": "/assets/image/service.png",
                 "selectedIconPath": "/assets/image/service-select.png"
             },

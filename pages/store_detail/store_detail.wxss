@@ -1,8 +1,13 @@
 .store_pics {
-    width: 630rpx;
-    height: 360rpx;
-    margin: 40rpx auto;
+    width: 750rpxrpx;
+    height: 400rpx;
+    background-color: #f5f2f2;
+    margin: 0rpx auto 40rpx;
     position: relative;
+    overflow: hidden;
+}
+.store_pics .according {
+    width: 100%;
 }
 .store_pics swiper {
     width: 630rpx;

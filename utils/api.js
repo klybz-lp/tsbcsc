@@ -12,7 +12,9 @@ const api = {
     banner: domain + "/api/index/banner",
     menu: domain + "/api/index/menu",
     storeRecommend: domain + "/api/index/store",
-    stoneRecommend: domain + "/api/index/stone",
+    storeCommend: domain + "/api/index/storeCommend",
+    stoneLast: domain + "/api/index/lastStone",
+    stoneTop: domain + "/api/index/hotStone",
     supplyRecommend: domain + "/api/index/supply",
     supplyUpload: domain + "/api/supply/upload",
     addSupply: domain + "/api/supply/add",
@@ -25,6 +27,7 @@ const api = {
     isStore: domain + "/api/user/isStore",
     addComment: domain + "/api/store/addComment",
     stoneList: domain + "/api/stone/getList",
+    stoneLists: domain + "/api/stone/getLists",
     stStoneList: "https://slab-api-test.soushi88.com/open/merchant/query",
     stoneType: domain + "/api/stone/getStoneType",
     stoneApply: domain + "/api/stone/apply",
@@ -43,6 +46,7 @@ const api = {
     newsDetail: domain + "/api/news/getDetail",
     login: domain + "/api/user/login",
     checkRegister: domain + "/api/user/checkRegister",
+    dLevel: domain + "/api/user/dLevel",
     about: domain + "/api/news/about",
     contact: domain + "/api/news/contact",
     user_detail: domain + "/api/user/detail",
@@ -50,5 +54,6 @@ const api = {
     sendSms: domain + "/api/user/sendSms",
     supplyList: domain + "/api/supply/getList",
     supplyDetail: domain + "/api/supply/getDetail",
+    addLike: domain + "/api/like/add",
 }
 module.exports = api; 

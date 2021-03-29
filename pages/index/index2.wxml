@@ -1,0 +1,170 @@
+<view class="container">
+    <!-- search -->
+    <view class="banner">
+        <swiper circular indicator-dots>
+            <swiper-item wx:for="{{banner}}" wx:key="index">
+                <navigator url="{{item.url}}">
+                    <image mode="widthFix" src="{{item.file_path}}"/>
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+    <!-- menu -->
+    <view class="menu">
+        <block wx:for="{{menu}}" wx:key="index">
+        <navigator url="{{item.url}}" class="menu-item" open-type="{{item.is_tab ? 'switchTab' : 'navigate'}}">
+            <view class="menu_pic">
+                <image mode="widthFix" src="{{item.path}}" />
+            </view>
+            <text>{{item.text}}</text>
+        </navigator>
+        </block>
+        <!-- <view class="menu-item" catchtap="gotoMini">
+            <view class="menu_pic">
+                <image mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/menu_06.png" />
+            </view>
+            <text>小丫背景墙</text>
+        </view> -->
+    </view>
+    <!-- stone -->
+    <view class="stone">
+        <view class="index_title">
+            <text class="text">精品石材/岩板</text>
+            <navigator url="/pages/stone/stone" open-type='switchTab'>
+                <text>更多</text>
+            </navigator>
+        </view>
+        <view class="stone_commend">
+            <navigator url="/pages/stone_detail/stone_detail?id={{stoneTop.id}}">
+                <image mode="widthFix" src="{{stoneTop.stone_cover}}"></image>
+            </navigator>
+        </view>
+        <view class="stone_main">
+            <swiper  bindchange="storeChange">
+                <swiper-item>
+                    <block wx:for="{{stone[0]}}" wx:key="index">
+                    <navigator url="/pages/stone_detail/stone_detail?id={{item.id}}&name={{item.name}}">
+                        <image class="stone_cover" src="{{item.stone_cover}}"></image>
+                        <image class="icon" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/is_commend.png" wx:if="{{item.is_recommend}}"></image>
+                        <image class="icon" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/is_hot.png" wx:if="{{item.is_hot}}"></image>
+                        <image class="icon" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/is_top.png" wx:if="{{item.is_top}}"></image>
+                    </navigator>
+                    </block>
+                </swiper-item>
+                <swiper-item wx:if="{{stone.length>1}}">
+                    <block wx:for="{{stone[1]}}" wx:key="index">
+                    <navigator url="/pages/stone_detail/stone_detail?id={{item.id}}&name={{item.name}}">
+                        <image class="stone_cover" src="{{item.stone_cover}}"></image>
+                        <image class="icon" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/is_commend.png" wx:if="{{item.is_recommend}}"></image>
+                        <image class="icon" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/is_hot.png" wx:if="{{item.is_hot}}"></image>
+                        <image class="icon" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/is_top.png" wx:if="{{item.is_top}}"></image>
+                    </navigator>
+                    </block>
+                </swiper-item>
+                <swiper-item wx:if="{{stone.length>2}}">
+                    <block wx:for="{{stone[2]}}" wx:key="index">
+                    <navigator url="/pages/stone_detail/stone_detail?id={{item.id}}&name={{item.name}}">
+                        <image class="stone_cover" src="{{item.stone_cover}}"></image>
+                        <image class="icon" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/is_commend.png" wx:if="{{item.is_recommend}}"></image>
+                        <image class="icon" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/is_hot.png" wx:if="{{item.is_hot}}"></image>
+                        <image class="icon" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/is_top.png" wx:if="{{item.is_top}}"></image>
+                    </navigator>
+                    </block>
+                </swiper-item>
+            </swiper>
+            <view class="dots">
+                <block wx:for="{{stone}}" wx:key="index">
+                <view class="dot {{current==index ? 'active' : ''}}"></view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <!-- store -->
+    <view class="store">
+        <view class="index_title">
+            <text class="text">商家列表</text>
+            <navigator url="/pages/store/store">
+                <text>更多</text>
+            </navigator>
+        </view>
+        <view class="store_main">
+            <block wx:for="{{store}}" wx:key="index">
+            <navigator url="/pages/store/store?id={{item.id}}">
+                <image mode="widthFix" src="{{item.file_path}}"></image>
+            </navigator>
+            </block>
+        </view>
+    </view>
+    <!-- supply -->
+    <view class="supply">
+        <view class="index_title">
+            <text class="text">最新供需</text>
+            <navigator url="/pages/supply/supply">
+                <text>更多</text>
+            </navigator>
+        </view>
+        <view class="supply_main">
+            <block wx:for="{{supply}}" wx:key="index">
+            <navigator url="/pages/supply/supply?id={{item.id}}">
+                <view class="tit">
+                    <image class="icon" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/supply_03.png" wx:if="{{item.type == 1}}"></image>
+                    <image class="icon" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/supply_04.png" wx:if="{{item.type == 2}}"></image>
+                </view>
+                <view class="con"><text class="ellipsis">{{item.remark}}</text></view>
+                <image class="line" src="https://stcdn.taoshibancang.com/static/wechat/tit_line.png"></image>
+            </navigator>
+            </block>
+        </view>
+    </view>
+    <!-- news -->
+    <view class="news">
+        <view class="index_title">
+            <text class="text">最新资讯</text>
+            <navigator url="/pages/news/news">
+                <text>更多</text>
+            </navigator>
+        </view>
+        <view class="news_main">
+            <scroll-view scroll-x="true" class="scroll-news" style="width:100%;">
+                <block class="news_wrap" wx:for="{{news}}" wx:key="index">
+                    <navigator url="/pages/news_detail/news_detail?id={{item.id}}">
+                        <image class="thumb" src="{{item.file_path}}"></image>
+                        <view class="con">
+                            <view class="time">{{item.ctime}}</view>
+                            <view class="text ellipsis_two">{{item.title}}</view>
+                        </view>
+                    </navigator>
+                </block>
+            </scroll-view>
+        </view>
+    </view>
+    <!-- cooper -->
+    <view class="cooper">
+        <view class="index_title">
+            <text class="text">资源合作库</text>
+            <navigator url="/pages/cooper/cooper">
+                <text>更多</text>
+            </navigator>
+        </view>
+        <view class="cooper_main">
+            <block wx:for="{{cooper}}" wx:key="index">
+            <navigator url="/pages/cooper_detail/cooper_detail?id={{item.id}}">
+                <view class="tit">
+                    <image class="icon" mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/icon_cooper.png"></image>
+                </view>
+                <view class="con"><text class="ellipsis">{{item.remark}}</text></view>
+                <image class="line" src="https://stcdn.taoshibancang.com/static/wechat/tit_line.png"></image>
+            </navigator>
+            </block>
+        </view>
+    </view>
+    <!-- footer -->
+    <view class="footer">
+        <view class="footer_logo" catchtap="backUp"><image mode="widthFix" src="https://stcdn.taoshibancang.com/static/wechat/footer_logo.png?v=1"></image></view>
+        <view class="footer_info">
+            <text>地址：{{siteInfo.address}}</text>
+            <text>电话：{{siteInfo.server_online}}</text>
+            <text>网址：{{siteInfo.url}}</text>
+        </view>
+    </view>
+</view>
